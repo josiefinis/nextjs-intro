@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative">
       <header className="relative z-10">
-        <h1 className="font-extrabold text-9xl py-1 mbe-1 font-display">
+        <h1 className="font-extrabold text-fluid-9xl py-1 mbe-1 font-display">
           Nextjs Intro
         </h1>
       </header>

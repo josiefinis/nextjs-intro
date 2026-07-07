@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function MainNav() {
   return (
-    <nav className="flex justify-center gap-4">
+    <nav className="flex justify-center gap-4 | text-fluid-xl">
       <Link className="me-auto" href={"/"}>
         Home
       </Link>
