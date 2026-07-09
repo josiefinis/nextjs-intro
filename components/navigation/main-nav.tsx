@@ -24,13 +24,13 @@ export default function MainNav() {
         />
       </Link>
       {navLinks.map((link) => (
-        <Link
+        <a
           key={link.href}
           href={link.href}
           className="hover:text-shadow-lg hover:text-shadow-pink-50 focus-visible:outline-none focus-visible:text-shadow-lg focus-visible:text-shadow-pink-50 me-auto"
         >
           {link.label}
-        </Link>
+        </a>
       ))}
     </nav>
   );
