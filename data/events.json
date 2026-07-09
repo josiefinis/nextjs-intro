@@ -1,0 +1,1758 @@
+{
+  "count": 56,
+  "meta": {
+    "categories": [
+      {
+        "slug": "sports",
+        "title": "Sports & Wellbeing",
+        "icon": "sports",
+        "subcategories": [
+          {
+            "slug": "games-championships",
+            "title": "Games & Championships",
+            "has_events": true
+          },
+          {
+            "slug": "races-competitions",
+            "title": "Races & Competitions",
+            "has_events": true
+          },
+          {
+            "slug": "wellbeing",
+            "title": "Wellbeing",
+            "has_events": true
+          }
+        ]
+      },
+      {
+        "slug": "stage-film",
+        "title": "Stage & Film",
+        "icon": "theatre",
+        "subcategories": [
+          {
+            "slug": "film",
+            "title": "Film",
+            "has_events": true
+          },
+          {
+            "slug": "stand-up-spoken-word",
+            "title": "Stand-up & Spoken Word",
+            "has_events": true
+          },
+          {
+            "slug": "theatre",
+            "title": "Theater",
+            "has_events": true
+          },
+          {
+            "slug": "dance",
+            "title": "Dance & Circus",
+            "has_events": true
+          },
+          {
+            "slug": "opera-musicals",
+            "title": "Opera & Show",
+            "has_events": true
+          }
+        ]
+      },
+      {
+        "slug": "science-tech",
+        "title": "Science & Tech",
+        "icon": "experiment",
+        "subcategories": []
+      },
+      {
+        "slug": "careers-leadership",
+        "title": "Careers & Leadership",
+        "icon": "monitoring",
+        "subcategories": []
+      },
+      {
+        "slug": "clubs-parties",
+        "title": "Clubs & Parties",
+        "icon": "clubsparties",
+        "subcategories": []
+      },
+      {
+        "slug": "eat-drink",
+        "title": "Eat & Drink",
+        "icon": "eatdrink",
+        "subcategories": []
+      },
+      {
+        "slug": "fairs",
+        "title": "Fairs",
+        "icon": "fairs",
+        "subcategories": [
+          {
+            "slug": "conventions-fairs",
+            "title": "Conventions & Fairs",
+            "has_events": true
+          },
+          {
+            "slug": "markets",
+            "title": "Markets",
+            "has_events": true
+          }
+        ]
+      },
+      {
+        "slug": "exhibitions",
+        "title": "Exhibitions",
+        "icon": "exhibitions",
+        "subcategories": [
+          {
+            "slug": "culture-arts",
+            "title": "Culture & Arts",
+            "has_events": true
+          },
+          {
+            "slug": "history-science",
+            "title": "Nature & Society",
+            "has_events": true
+          }
+        ]
+      },
+      {
+        "slug": "family",
+        "title": "Family",
+        "icon": "family",
+        "subcategories": []
+      },
+      {
+        "slug": "festivals",
+        "title": "Festivals",
+        "icon": "festival",
+        "subcategories": []
+      },
+      {
+        "slug": "guided-tours",
+        "title": "Guided tours",
+        "icon": "binoculars",
+        "subcategories": []
+      },
+      {
+        "slug": "networking-community",
+        "title": "Networking & Community",
+        "icon": "networking",
+        "subcategories": []
+      },
+      {
+        "slug": "music",
+        "title": "Music",
+        "icon": "music",
+        "subcategories": [
+          {
+            "slug": "jazz-blues",
+            "title": "Jazz & Blues",
+            "has_events": true
+          },
+          {
+            "slug": "pop",
+            "title": "Pop",
+            "has_events": true
+          },
+          {
+            "slug": "dance-electronic",
+            "title": "Dance & Electronic",
+            "has_events": true
+          },
+          {
+            "slug": "hip-hop-soul-rnb",
+            "title": "Hip hop, Soul & RnB",
+            "has_events": true
+          },
+          {
+            "slug": "hard-rock-metal",
+            "title": "Hard Rock & Metal",
+            "has_events": true
+          },
+          {
+            "slug": "indie-punk",
+            "title": "Indie & Punk",
+            "has_events": true
+          },
+          {
+            "slug": "country-folk",
+            "title": "Folk, Traditional & Country",
+            "has_events": true
+          },
+          {
+            "slug": "rock",
+            "title": "Rock",
+            "has_events": true
+          },
+          {
+            "slug": "reggae",
+            "title": "Reggae",
+            "has_events": true
+          },
+          {
+            "slug": "classical",
+            "title": "Classical & Art Music",
+            "has_events": true
+          }
+        ]
+      },
+      {
+        "slug": "christmas-new-years-eve",
+        "title": "Christmas & New Year's",
+        "icon": "holidaybell",
+        "subcategories": []
+      },
+      {
+        "slug": "gaming-boardgames",
+        "title": "Gaming & Boardgames",
+        "icon": "networking",
+        "subcategories": []
+      }
+    ],
+    "subcategories": [
+      {
+        "slug": "games-championships",
+        "title": "Games & Championships",
+        "has_events": true
+      },
+      {
+        "slug": "races-competitions",
+        "title": "Races & Competitions",
+        "has_events": true
+      },
+      {
+        "slug": "wellbeing",
+        "title": "Wellbeing",
+        "has_events": true
+      },
+      {
+        "slug": "conventions-fairs",
+        "title": "Conventions & Fairs",
+        "has_events": true
+      },
+      {
+        "slug": "markets",
+        "title": "Markets",
+        "has_events": true
+      },
+      {
+        "slug": "culture-arts",
+        "title": "Culture & Arts",
+        "has_events": true
+      },
+      {
+        "slug": "history-science",
+        "title": "Nature & Society",
+        "has_events": true
+      },
+      {
+        "slug": "film",
+        "title": "Film",
+        "has_events": true
+      },
+      {
+        "slug": "stand-up-spoken-word",
+        "title": "Stand-up & Spoken Word",
+        "has_events": true
+      },
+      {
+        "slug": "theatre",
+        "title": "Theater",
+        "has_events": true
+      },
+      {
+        "slug": "dance",
+        "title": "Dance & Circus",
+        "has_events": true
+      },
+      {
+        "slug": "jazz-blues",
+        "title": "Jazz & Blues",
+        "has_events": true
+      },
+      {
+        "slug": "pop",
+        "title": "Pop",
+        "has_events": true
+      },
+      {
+        "slug": "dance-electronic",
+        "title": "Dance & Electronic",
+        "has_events": true
+      },
+      {
+        "slug": "hip-hop-soul-rnb",
+        "title": "Hip hop, Soul & RnB",
+        "has_events": true
+      },
+      {
+        "slug": "hard-rock-metal",
+        "title": "Hard Rock & Metal",
+        "has_events": true
+      },
+      {
+        "slug": "indie-punk",
+        "title": "Indie & Punk",
+        "has_events": true
+      },
+      {
+        "slug": "country-folk",
+        "title": "Folk, Traditional & Country",
+        "has_events": true
+      },
+      {
+        "slug": "rock",
+        "title": "Rock",
+        "has_events": true
+      },
+      {
+        "slug": "reggae",
+        "title": "Reggae",
+        "has_events": true
+      },
+      {
+        "slug": "classical",
+        "title": "Classical & Art Music",
+        "has_events": true
+      },
+      {
+        "slug": "opera-musicals",
+        "title": "Opera & Show",
+        "has_events": true
+      }
+    ]
+  },
+  "next": 2,
+  "previous": null,
+  "total_pages": 4,
+  "current_page": 1,
+  "results": [
+    {
+      "id": "9e83f06b-8119-4b1a-983b-eb25beb16368",
+      "title": {
+        "en": "DJ Boondox at The Node",
+        "sv": "DJ Boondox på The Node"
+      },
+      "description": {
+        "en": "DJ Boondox - an Afrofunk &amp; HipHop DJ performs at The Node&#x27;s summer concept Still in Town. ",
+        "sv": "DJ Boondox spelar afrofuk &amp; HipHop på The Node&#x27;s sommarkoncept Kvar i Stan. "
+      },
+      "external_website_url": "https://thenode.se/",
+      "url": "summer-in-the-city-the-node-free-entrance-live-g-3",
+      "address": "Sergels Torg 3",
+      "venue_name": "The Node",
+      "zip_code": "111 57",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3322282886748,
+        "longitude": 18.0655166684024
+      },
+      "created_at": "2026-06-28T17:35:49.448151+02:00",
+      "modified_at": "2026-06-29T10:25:15.656900+02:00",
+      "start_date": "2026-07-08",
+      "end_date": "2026-07-15",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Clubs & Parties",
+          "slug": "clubs-parties",
+          "subcategories": []
+        },
+        {
+          "title": "Eat & Drink",
+          "slug": "eat-drink",
+          "subcategories": []
+        },
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-07-08",
+            "start_time": "18:00",
+            "end_time": "21:00"
+          },
+          {
+            "date": "2026-07-15",
+            "start_time": "18:00",
+            "end_time": "21:00"
+          }
+        ]
+      },
+      "closest_station": "T-Centralen"
+    },
+    {
+      "id": "5284fb2c-c656-4d64-b8e2-7e25cb1f6dc6",
+      "title": {
+        "en": "Sabina Ddumba Live on Idöborg",
+        "sv": "Sabina Ddumba live på Idöborg"
+      },
+      "description": {
+        "en": "A summer evening on Idöborg in the Stockholm archipelago with Sabina Ddumba live in Ögonblicket. The evening can be combined with a grill buffet at Strandbaren, a concert by the sea at sunset, and time to stay on the island afterwards. Packages with dinner, concert, overnight stay and breakfast are also available.",
+        "sv": "En sommarkväll på Idöborg i Stockholms skärgård med Sabina Ddumba live i Ögonblicket. Kvällen kan kombineras med grillbuffé på Strandbaren, konsert med havet och solnedgången som fond, samt efterhäng på ön. Det finns även möjlighet att boka paket med middag, konsert, övernattning och frukost."
+      },
+      "external_website_url": "https://idoborg.se/events/sabina-ddumba/",
+      "url": "sabina-ddumba-live-on-idoborg",
+      "address": "Idöborg",
+      "venue_name": "Ögonblicket, Idöborg",
+      "zip_code": "130 36",
+      "city": "Nämdö",
+      "location": {
+        "latitude": 59.2048,
+        "longitude": 18.7588
+      },
+      "created_at": "2026-06-02T16:19:44.844628+02:00",
+      "modified_at": "2026-06-04T09:59:14.722380+02:00",
+      "start_date": "2026-07-09",
+      "end_date": "2026-07-09",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Eat & Drink",
+          "slug": "eat-drink",
+          "subcategories": []
+        },
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-07-09",
+            "start_time": "17:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "Stavsnäs"
+    },
+    {
+      "id": "b283d2d6-78f7-4289-94f4-e15858e670be",
+      "title": {
+        "en": "Blockparty on Skånegatan 87",
+        "sv": "Blockparty på Skånegatan 87"
+      },
+      "description": {
+        "en": "Come and celebrate life, diversity and music together! A take over of Skånegatan 87 in the heart of Stockholm. The 11th of July, celebrate life as a blockparty and pre party for the Bad Bunny concert!",
+        "sv": "Kom och fira livet, mångfald och musik tillsammans medan vi tar över en gata i hjärtat av Stockholm. Den 11e juli firar vi livet i form av en blockparty och förfest, innan Bad Bunny konserten, på Skånegatan 87. "
+      },
+      "external_website_url": "https://lf-blockparty.confetti.events",
+      "url": "blockparty-on-skanegatan-87",
+      "address": "Stockholm",
+      "venue_name": "Skånegatan 87",
+      "zip_code": "11635",
+      "city": "Södermalm",
+      "location": {
+        "latitude": 59.3126,
+        "longitude": 18.0896
+      },
+      "created_at": "2026-07-06T10:25:49.519487+02:00",
+      "modified_at": "2026-07-06T10:55:50.550409+02:00",
+      "start_date": "2026-07-11",
+      "end_date": "2026-07-11",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Clubs & Parties",
+          "slug": "clubs-parties",
+          "subcategories": []
+        },
+        {
+          "title": "Festivals",
+          "slug": "festivals",
+          "subcategories": []
+        },
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-07-11",
+            "start_time": "12:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "Medborgarplatsen"
+    },
+    {
+      "id": "0624449d-aea1-45bf-8b1e-178364481bef",
+      "title": {
+        "en": "3x modern metalcore",
+        "sv": "3x modern metalcore"
+      },
+      "description": {
+        "en": "Three rising modern metalcore bands come together for a night of crushing riffs, huge melodies and explosive live energy. Torments headline their first hometown show alongside Finnish act Block of Flats and support band Severed In Vain.",
+        "sv": "Tre av den moderna metalcorens mest spännande akter samlas för en kväll fylld av tunga riff, stora melodier och explosiv liveenergi. Torments gör sitt första headline-gig på hemmaplan tillsammans med finska Block of Flats och supportakten Severed In Vain."
+      },
+      "external_website_url": "https://parkensoder.se/event",
+      "url": "3x-modern-metalcore-torments-block-of-flats-suppor",
+      "address": "Fatbursgatan 1",
+      "venue_name": "Parken Söder",
+      "zip_code": "118 28",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3146618731854,
+        "longitude": 18.0666263485638
+      },
+      "created_at": "2026-06-29T10:37:14.336971+02:00",
+      "modified_at": "2026-06-29T11:18:39.401603+02:00",
+      "start_date": "2026-07-17",
+      "end_date": "2026-07-17",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-07-17",
+            "start_time": "16:00",
+            "end_time": "23:00"
+          }
+        ]
+      },
+      "closest_station": "Medborgarplatsen"
+    },
+    {
+      "id": "df8ec269-acc9-43a0-a6ca-dd7ff148c635",
+      "title": {
+        "en": "Parkteatern - Ana Tijoux",
+        "sv": "Parkteatern - Ana Tijoux"
+      },
+      "description": {
+        "en": "A voice of resistance, a force of rhythm. Ana Tijoux blends hard-hitting hip-hop with Latin beats, jazz, and reggaeton. From fiery protest songs to hopeful odes, experience one of Latin America’s most powerful voices live! This is more than a concert—it’s a movement.",
+        "sv": "En röst för motstånd, en kraft av rytm. Ana Tijoux förenar skarp hiphop med latinska beats, jazz och reggaeton. Från brännande protestsånger till hoppfulla hyllningar, upplev en av Latinamerikas mest kraftfulla röster live! Det här är mer än en konsert, det är en rörelse."
+      },
+      "external_website_url": "https://kulturhusetstadsteatern.se/konserter/ana-tijoux-med-selam",
+      "url": "parkteatern-ana-tijoux",
+      "address": "Djurgårdsstrand 15",
+      "venue_name": "Galärparken, Djurgården",
+      "zip_code": "115 21",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.326574778802,
+        "longitude": 18.0947827538917
+      },
+      "created_at": "2026-05-19T10:51:56.791763+02:00",
+      "modified_at": "2026-05-19T14:45:25.978060+02:00",
+      "start_date": "2026-07-24",
+      "end_date": "2026-07-24",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-07-24",
+            "start_time": "18:00",
+            "end_time": "19:30"
+          }
+        ]
+      },
+      "closest_station": "Liljevalchs/Gröna Lund"
+    },
+    {
+      "id": "485e540b-cc62-4276-9bab-7e6c19fc4f68",
+      "title": {
+        "en": "SUS Live: SAUDA",
+        "sv": "SUS Live: SAUDA"
+      },
+      "description": {
+        "en": "SAUDA takes the stage at SUS Live. On August 5th, we invite you to an evening where progressive R&amp;B, alternative pop, and hip-hop merge into an international sound that feels both new and natural.",
+        "sv": "SAUDA kliver upp på scenen hos Stockholm Under Stjärnorna. Den 5 augusti bjuder vi in till en kväll där progressiv R&amp;B, alternativ pop och hiphop smälter samman i ett internationellt sound som känns både nytt och självklart."
+      },
+      "external_website_url": "https://sthlmunderstjarnorna.com/event/sauda",
+      "url": "sus-live-sauda",
+      "address": "Brunkebergstorg 2-4",
+      "venue_name": "Stockholm Under Stjärnorna",
+      "zip_code": "111 51",
+      "city": "stockholm",
+      "location": {
+        "latitude": 59.3305736590785,
+        "longitude": 18.0669866027623
+      },
+      "created_at": "2026-06-11T14:49:33.278384+02:00",
+      "modified_at": "2026-06-12T14:21:40.654869+02:00",
+      "start_date": "2026-08-05",
+      "end_date": "2026-08-05",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Eat & Drink",
+          "slug": "eat-drink",
+          "subcategories": []
+        },
+        {
+          "title": "Festivals",
+          "slug": "festivals",
+          "subcategories": []
+        },
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-05",
+            "start_time": "20:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "T-centralen"
+    },
+    {
+      "id": "aec3b77e-3516-4d7b-af63-e8deb1e9d085",
+      "title": {
+        "en": "TOODY COLE AND HER BAND at Debaser Nova",
+        "sv": "TOODY COLE AND HER BAND på Debaser Nova"
+      },
+      "description": {
+        "en": "Toody Cole, co-founder of the iconic band Dead Moon, performs at Debaser Nova with her band. A key figure in American DIY rock, she helped shape a raw and uncompromising sound that has inspired generations. Together with her bandmates, she carries forward the Dead Moon catalogue, performing classic songs with renewed intensity. Expect a powerful and authentic live experience.",
+        "sv": "Toody Cole, medgrundare av ikoniska Dead Moon, kommer till Debaser Nova med sitt band. Som en central figur inom amerikansk DIY-rock har hon format ett rått och kompromisslöst sound som inspirerat generationer. Tillsammans med sina bandmedlemmar för hon Dead Moons låtskatt vidare och framför klassiska låtar med ny intensitet. Förvänta dig en kraftfull och autentisk liveupplevelse."
+      },
+      "external_website_url": "https://www.debaser.se/events/toody-cole-and-her-band",
+      "url": "toody-cole-and-her-band-at-debaser-nova",
+      "address": "Hornstulls strand 4",
+      "venue_name": "Debaser Nova",
+      "zip_code": "117 39",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3139461375199,
+        "longitude": 18.0339032311317
+      },
+      "created_at": "2026-03-20T10:30:50.850916+01:00",
+      "modified_at": "2026-03-20T11:41:06.150017+01:00",
+      "start_date": "2026-08-25",
+      "end_date": "2026-08-25",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-25",
+            "start_time": "18:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "Hornstull"
+    },
+    {
+      "id": "cda89094-8adc-418a-8d23-71df79e426ee",
+      "title": {
+        "en": "Stick To Your Guns",
+        "sv": "Stick To Your Guns"
+      },
+      "description": {
+        "en": "Stick To Your Guns return with their new album Keep Planting Flowers. Stripped-back, uncompromising hardcore where every riff hits hard – a live experience driven by both intensity and emotion.",
+        "sv": "Stick To Your Guns är tillbaka med nya albumet Keep Planting Flowers. Avskalad, kompromisslös hardcore där varje riff och rad bär tyngd – live lika mycket urladdning som känsla."
+      },
+      "external_website_url": "https://fkpscorpio.se/evenemang/detail/stick-to-your-guns/",
+      "url": "stick-to-your-guns",
+      "address": "Stadsgårdsterminalen",
+      "venue_name": "Kollektivet Livet Bar och Scen",
+      "zip_code": "116 45",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3191756,
+        "longitude": 18.0785363
+      },
+      "created_at": "2026-04-14T14:34:58.026711+02:00",
+      "modified_at": "2026-04-14T15:09:05.958311+02:00",
+      "start_date": "2026-08-25",
+      "end_date": "2026-08-25",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-25",
+            "start_time": "18:30",
+            "end_time": "23:00"
+          }
+        ]
+      },
+      "closest_station": "Slussen"
+    },
+    {
+      "id": "05f9f0ad-47d1-4cd7-bb85-687b735aee6e",
+      "title": {
+        "en": "Deafheaven",
+        "sv": "Deafheaven"
+      },
+      "description": {
+        "en": "The San Francisco band Deafheaven, known for their groundbreaking album Sunbather and as pioneers of the blackgaze genre, return to Sweden for a show at Slaktkyrkan on August 26. With their latest album Lonely People With Power, they deliver another powerful, emotionally charged experience where beauty meets intensity.",
+        "sv": "San Francisco-bandet Deafheaven, kända för det banbrytande albumet Sunbather och som flaggbärare för blackgaze-genren, kommer till Sverige för en konsert på Slaktkyrkan den 26 augusti. Med senaste albumet Lonely People With Power levererar de återigen en kraftfull och emotionellt laddad upplevelse där det vackra möter det råa."
+      },
+      "external_website_url": "https://luger.se/deafheaven/",
+      "url": "deafheaven",
+      "address": "Styckmästargatan 10",
+      "venue_name": "Slaktkyrkan",
+      "zip_code": "121 62",
+      "city": "Johanneshov",
+      "location": {
+        "latitude": 59.2924918324884,
+        "longitude": 18.0800154815674
+      },
+      "created_at": "2026-03-02T15:36:48.994178+01:00",
+      "modified_at": "2026-03-03T12:14:27.208757+01:00",
+      "start_date": "2026-08-26",
+      "end_date": "2026-08-26",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-26",
+            "start_time": "20:00",
+            "end_time": "23:00"
+          }
+        ]
+      },
+      "closest_station": "Globen"
+    },
+    {
+      "id": "bd8951a3-e276-4aa3-bb79-a16981b0461b",
+      "title": {
+        "en": "SUS LIVE: Isaac and The Soul Machine",
+        "sv": "SUS LIVE: Isaac and The Soul Machine"
+      },
+      "description": {
+        "en": "Isaac and The Soul Machine come to SUS Live for an evening centered around soul, dance, and pure joy. This isn’t just a band—it’s an experience guaranteed to make your heart skip a beat and your dancing shoes work overtime.",
+        "sv": "Isaac and The Soul Machine på SUS Live. En kväll där soul, dans och ren glädje står i centrum. Det här är inte bara ett band – det är en upplevelse som garanterat får hjärtat att slå volter och dansskorna att jobba hårdare."
+      },
+      "external_website_url": "https://sthlmunderstjarnorna.com/event/isaac-and-the-soul-machine",
+      "url": "sus-live-isaac-and-the-soul-machine",
+      "address": "Brunkebergstorg 2-4",
+      "venue_name": "Stockholm under Stjärnorna",
+      "zip_code": "11151",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3305736590785,
+        "longitude": 18.0669866027623
+      },
+      "created_at": "2026-06-11T15:03:19.187571+02:00",
+      "modified_at": "2026-06-12T14:18:58.562401+02:00",
+      "start_date": "2026-08-26",
+      "end_date": "2026-08-26",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Clubs & Parties",
+          "slug": "clubs-parties",
+          "subcategories": []
+        },
+        {
+          "title": "Eat & Drink",
+          "slug": "eat-drink",
+          "subcategories": []
+        },
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-26",
+            "start_time": "20:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "T-centralen"
+    },
+    {
+      "id": "7ccbc5d5-ce39-4e4d-984f-10a6d4f84373",
+      "title": {
+        "en": "Petter",
+        "sv": "Petter"
+      },
+      "description": {
+        "en": "Petter, one of Sweden&#x27;s most influential hip-hop artists, comes to Mosebacketerrassen for two exclusive concerts. With over 25 years in the Swedish music scene and several Grammis awards to his name, he offers a mix of classic songs and new material from his upcoming album. Together with DJ Sleepy and Eye N’I, he creates an energetic and intimate concert experience.",
+        "sv": "Petter, en av Sveriges mest inflytelserika hiphop-artister, kommer till Mosebacketerrassen för två exklusiva konserter. Med över 25 år på den svenska musikscenen och flera Grammisar i bagaget, bjuder han på en blandning av klassiska låtar och nytt material från det kommande albumet. Tillsammans med DJ Sleepy och Eye N’I skapar han en energifylld och nära konsertupplevelse."
+      },
+      "external_website_url": "https://sodrateatern.com/evenemang/musik-show/petter/",
+      "url": "petter",
+      "address": "Mosebacke torg 1-3",
+      "venue_name": "Mosebacketerrassen",
+      "zip_code": "116 46",
+      "city": "Stockholm",
+      "location": null,
+      "created_at": "2026-06-24T16:07:39.979439+02:00",
+      "modified_at": "2026-06-24T16:07:39.979460+02:00",
+      "start_date": "2026-08-31",
+      "end_date": "2026-09-09",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-08-31",
+            "start_time": "19:30",
+            "end_time": "22:30"
+          },
+          {
+            "date": "2026-09-09",
+            "start_time": "19:30",
+            "end_time": "22:30"
+          }
+        ]
+      },
+      "closest_station": "Slussen"
+    },
+    {
+      "id": "259851c8-db78-43ed-9b14-b5193ebe86fc",
+      "title": {
+        "en": "Nightshade Frequencies",
+        "sv": "Nightshade Frequencies"
+      },
+      "description": {
+        "en": "Vi utlovar en festivalupplevelse långt utöver det vanliga. Ambitionen att samla ledande akter från olika grenar av extremmusik under samma fana är i sig ingen ny idé – det är genomförandet som kommer sakna motstycke.",
+        "sv": "Vi utlovar en festivalupplevelse långt utöver det vanliga. Ambitionen att samla ledande akter från olika grenar av extremmusik under samma fana är i sig ingen ny idé – det är genomförandet som kommer sakna motstycke."
+      },
+      "external_website_url": "https://www.fallan.nu/whats-on/nightshade-frequencies",
+      "url": "nightshade-frequencies",
+      "address": "Hallgränd 19",
+      "venue_name": "Slakthusområdet",
+      "zip_code": "121 62",
+      "city": "Johanneshov",
+      "location": {
+        "latitude": 59.2926617242827,
+        "longitude": 18.0778519800296
+      },
+      "created_at": "2025-11-27T17:31:24.678246+01:00",
+      "modified_at": "2025-11-28T09:20:41.084376+01:00",
+      "start_date": "2026-09-05",
+      "end_date": "2026-09-05",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-09-05",
+            "start_time": "14:00",
+            "end_time": "01:00"
+          }
+        ]
+      },
+      "closest_station": "Globen"
+    },
+    {
+      "id": "7272d2ef-0c50-48d0-8054-852ab7b0f32f",
+      "title": {
+        "en": "Atomic Swing x Popsicle",
+        "sv": "Atomic Swing x Popsicle"
+      },
+      "description": {
+        "en": "Atomic Swing broke through in the early ’90s with a melodic rock sound blending groove, retro influences and strong hooks. With tracks like “Stone Me Into The Groove” and “Smile”, they set a new standard for Swedish rock – confident, playful and internationally appealing. Their music remains a defining mark of an era when Swedish rock truly found its voice.",
+        "sv": "Atomic Swing slog igenom i början av 90-talet med ett melodiskt rocksound där sväng, retroinfluenser och starka hooks möts. Med låtar som “Stone Me Into The Groove” och “Smile” satte de en ny standard för hur svensk rock kunde låta – självsäkert, lekfullt och internationellt gångbart. Deras musik står sig fortfarande som ett tydligt avtryck från en era då svensk rock tog plats på allvar."
+      },
+      "external_website_url": "https://fkpscorpio.se/evenemang/detail/atomic-swing/",
+      "url": "atomic-swing-x-popsicle",
+      "address": "Djurgårdsslätten 43-45",
+      "venue_name": "Cirkus",
+      "zip_code": "115 21",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3245767426326,
+        "longitude": 18.0996982371899
+      },
+      "created_at": "2026-04-30T13:23:05.012537+02:00",
+      "modified_at": "2026-05-05T13:16:16.930926+02:00",
+      "start_date": "2026-09-05",
+      "end_date": "2026-09-05",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-09-05",
+            "start_time": "18:30",
+            "end_time": "23:00"
+          }
+        ]
+      },
+      "closest_station": "Skansen"
+    },
+    {
+      "id": "f7dafa6f-6de2-4d45-9bd1-d2cfacc94959",
+      "title": {
+        "en": "Maustetytöt at Debaser Strand",
+        "sv": "Maustetytöt på Debaser Strand"
+      },
+      "description": {
+        "en": "Maustetytöt perform at Debaser Strand on September 9. The Finnish duo are known for their captivating melodies and sharp, hyper-realistic lyrics. With their new album Itken jos mua huvittaa, they continue to explore themes of emotional struggle and everyday life. Having played hundreds of sold-out shows, they deliver a powerful and moving live performance.",
+        "sv": "Maustetytöt kommer till Debaser Strand den 9 september. Den finska duon är känd för sina fängslande melodier och träffsäkra, hyperrealistiska texter. Med nya albumet Itken jos mua huvittaa fortsätter de att utforska teman som livets svårigheter och känslomässiga ytterligheter. Med hundratals utsålda konserter bakom sig bjuder de på en stark och berörande liveupplevelse."
+      },
+      "external_website_url": "https://www.debaser.se/events/maustetytot",
+      "url": "maustetytot-at-debaser-strand",
+      "address": "Hornstulls strand 4",
+      "venue_name": "Debaser Strand",
+      "zip_code": "117 39",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3139461375199,
+        "longitude": 18.0339032311317
+      },
+      "created_at": "2026-03-20T10:44:54.367377+01:00",
+      "modified_at": "2026-03-20T11:41:48.551005+01:00",
+      "start_date": "2026-09-09",
+      "end_date": "2026-09-09",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-09-09",
+            "start_time": "18:30",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "Hornstull"
+    },
+    {
+      "id": "078c7c1a-e711-4e5e-84d2-dbf0223e8164",
+      "title": {
+        "en": "Eddie & the Hot Rods – Kollektivet Livet • 17 sep",
+        "sv": "Eddie & the Hot Rods – Kollektivet Livet • 17 sep"
+      },
+      "description": {
+        "en": "Guaranteed sweat, guitar and booze This tour is a complete, adrenaline-fueled live experience, where every venue is filled with raw rock’n’roll joy. It’s a chance to see one of the genre’s most iconic bands deliver as only they can – up close, loud and without compromise. Since 1975, Eddie &amp; the Hot Rods have pumped out a raw, unadulterated energy. ",
+        "sv": "Garanterad svett, gitarr och ös Den här turnén är en fullständig, adrenalin­stinn live­upplevelse, där varje spel­ställe fylls med rå rock’n’roll-glädje. Det är en chans att se ett av genrens mest ikoniska band leverera som bara de kan – nära, högt och utan kompromisser. Sedan 1975 har Eddie &amp; the Hot Rods pumpat ut en rå, oförfalskad energi! ."
+      },
+      "external_website_url": "https://www.kulturaktiebolaget.se/evenemang/eddie-the-hot-rods",
+      "url": "eddie-the-hot-rods-kollektivet-livet-17-sep",
+      "address": "Stadsgårdsterminalen",
+      "venue_name": "Kollektivet Livet Bar och Scen",
+      "zip_code": "116 45",
+      "city": "Stockholm",
+      "location": {
+        "latitude": 59.3191756,
+        "longitude": 18.0785363
+      },
+      "created_at": "2025-12-08T13:10:16.761941+01:00",
+      "modified_at": "2025-12-08T14:07:25.945882+01:00",
+      "start_date": "2026-09-17",
+      "end_date": "2026-09-17",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-09-17",
+            "start_time": "20:00",
+            "end_time": "22:00"
+          }
+        ]
+      },
+      "closest_station": "Slussen"
+    },
+    {
+      "id": "d62a18c0-c3be-4f29-a8cd-cee095e36770",
+      "title": {
+        "en": "A$AP Rocky – Don’t Be Dumb World Tour",
+        "sv": "A$AP Rocky – Don’t Be Dumb World Tour"
+      },
+      "description": {
+        "en": "A$AP Rocky brings the Don’t Be Dumb World Tour 2026 to Stockholm. The show takes place at Avicii Arena. The tour supports his album DON’T BE DUMB and marks his first major world tour in years. Visit the organizer’s page for the latest updates and ticket information.",
+        "sv": "A$AP Rocky kommer till Stockholm med sin Don’t Be Dumb World Tour 2026. Konserten äger rum på Avicii Arena. Turnén är Rockys första stora världsturné på flera år och följer hans album DON’T BE DUMB. Se arrangörens sida för uppdaterad information och biljettsläpp."
+      },
+      "external_website_url": "https://www.mynewsdesk.com/se/livenation/pressreleases/a$ap-rocky-aaker-ut-paa-omfattande-vaerldsturne-kommer-till-sverige-i-hoest-3427033",
+      "url": "aap-rocky-dont-be-dumb-world-tour",
+      "address": "Arenatorget",
+      "venue_name": "Avicii Arena",
+      "zip_code": "121 77",
+      "city": "Johanneshov",
+      "location": {
+        "latitude": 59.2935327771887,
+        "longitude": 18.083555997467
+      },
+      "created_at": "2026-01-20T16:28:37.396550+01:00",
+      "modified_at": "2026-01-20T16:42:19.219844+01:00",
+      "start_date": "2026-09-21",
+      "end_date": "2026-09-21",
+      "start_time": null,
+      "end_time": null,
+      "categories": [
+        {
+          "title": "Music",
+          "slug": "music",
+          "subcategories": [
+            {
+              "title": "Jazz & Blues",
+              "slug": "jazz-blues"
+            },
+            {
+              "title": "Pop",
+              "slug": "pop"
+            },
+            {
+              "title": "Dance & Electronic",
+              "slug": "dance-electronic"
+            },
+            {
+              "title": "Hip hop, Soul & RnB",
+              "slug": "hip-hop-soul-rnb"
+            },
+            {
+              "title": "Hard Rock & Metal",
+              "slug": "hard-rock-metal"
+            },
+            {
+              "title": "Indie & Punk",
+              "slug": "indie-punk"
+            },
+            {
+              "title": "Folk, Traditional & Country",
+              "slug": "country-folk"
+            },
+            {
+              "title": "Rock",
+              "slug": "rock"
+            },
+            {
+              "title": "Reggae",
+              "slug": "reggae"
+            },
+            {
+              "title": "Classical & Art Music",
+              "slug": "classical"
+            }
+          ]
+        }
+      ],
+      "schedule": {
+        "range": null,
+        "dates": [
+          {
+            "date": "2026-09-21",
+            "start_time": "19:00",
+            "end_time": "23:30"
+          }
+        ]
+      },
+      "closest_station": "Globen"
+    }
+  ]
+}

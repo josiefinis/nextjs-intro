@@ -8,10 +8,15 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-fruktur: var(--font-fruktur);
+  --font-protest-revolution: var(--font-protest-revolution);
   --font-display: var(--font-josefin-sans);
-  --text-fluid-xl: clamp(1rem, 3cqi + 0.5rem, 4rem);
-  --text-fluid-3xl: clamp(3rem, 8cqi + 0.5rem, 8rem);
-  --text-fluid-9xl: clamp(3rem, 14cqi + 0.5rem, 18rem);
+  --text-fluid-lg: clamp(1rem, 1cqi + 0.5rem, 4rem);
+  --text-fluid-xl: clamp(1rem, 1.8cqi + 0.5rem, 4rem);
+  --text-fluid-2xl: clamp(2rem, 4cqi + 0.5rem, 8rem);
+  --text-fluid-3xl: clamp(2rem, 6cqi + 0.5rem, 8rem);
+  --text-fluid-9xl: clamp(3rem, 18cqi + 0.5rem, 30rem);
+  --mx-fluid: clamp(0.5rem, 2cqi, 3rem);
 }
 
 @media (prefers-color-scheme: dark) {

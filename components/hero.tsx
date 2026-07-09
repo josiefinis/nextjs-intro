@@ -1,11 +1,20 @@
 import Image from "next/image";
+import Button from "@/components/button";
 
 export default function Hero() {
   return (
     <section className="relative">
       <header className="relative z-10">
-        <h1 className="font-extrabold text-fluid-9xl py-1 mbe-1 font-display">
-          Nextjs Intro
+        <Image
+          className="w-full h-auto object-cover pbs-4 z-0"
+          src={"/winged-heart.png"}
+          width={2340}
+          height={700}
+          alt=""
+          loading="eager"
+        />
+        <h1 className="font-fruktur text-fluid-9xl py-1 text-center">
+          JosifiniX
         </h1>
       </header>
       <Image
@@ -15,6 +24,17 @@ export default function Hero() {
         alt=""
         loading="eager"
       />
+      <div className="flex justify-end items-center gap-8 p-4">
+        <p className="text-pink-50 text-fluid-3xl z-10 font-protest-revolution">
+          up in Smoke
+        </p>
+        <Button
+          href="#"
+          classes="bg-pink-100 text-pink-600 uppercase text-fluid-xl"
+        >
+          Out Now
+        </Button>
+      </div>
     </section>
   );
 }
