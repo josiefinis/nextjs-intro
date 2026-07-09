@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import logo from "@/public/winged-heart-logo.png";
 
 const navLinks = [
   { href: "/merch", label: "Merch" },
@@ -12,13 +13,7 @@ export default function MainNav() {
   return (
     <nav className="flex justify-center gap-4 items-center m-4 | font-display text-fluid-xl">
       <Link href={"/"} aria-label="Home" className="me-auto hover:underline">
-        <Image
-          src={"/winged-heart-logo.png"}
-          alt=""
-          width={680}
-          height={450}
-          className="h-10 w-auto "
-        />
+        <Image src={logo} alt="" className="h-10 w-auto " />
       </Link>
       {navLinks.map((link) => (
         <Link

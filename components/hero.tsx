@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/button";
+import background from "@/public/pink-sky.jpg";
+import wingedHeart from "@/public/winged-heart.png";
 
 export default function Hero() {
   return (
@@ -7,11 +9,8 @@ export default function Hero() {
       <header className="relative z-10">
         <Image
           className="w-full h-auto object-cover pbs-4 z-0"
-          src={"/winged-heart.png"}
-          width={2340}
-          height={700}
+          src={wingedHeart}
           alt=""
-          loading="eager"
         />
         <h1 className="font-fruktur text-fluid-9xl py-1 text-center text-pink-50">
           JosifiniX
@@ -19,7 +18,7 @@ export default function Hero() {
       </header>
       <Image
         className="w-full h-auto object-cover z-0"
-        src={"/pink-sky.jpg"}
+        src={background}
         fill
         alt=""
         loading="eager"
