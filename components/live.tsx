@@ -9,13 +9,11 @@ const longDate = Intl.DateTimeFormat("sv-SE", {
   minute: "numeric",
 });
 
-function isString(date: string | undefined): date is string {
-  return (date as string).length !== undefined;
+function isString(value: string | undefined): value is string {
+  return (value as string).length !== undefined;
 }
 
-const events = data.results.filter((event) =>
-  isString(event.schedule.dates[0]?.date),
-);
+const events = data.results;
 
 interface EventProps {
   city: string;
@@ -51,20 +49,23 @@ export default function Live() {
         Live
       </h2>
       <div className="grid gap-24 md:gap-12">
-        {events.map((event) => (
-          <Event
-            key={event.id}
-            city={event.city}
-            venue={event.venue_name}
-            date={
-              new Date(
-                `${event.schedule.dates[0]?.date} ${event.schedule.dates[0]?.start_time}`,
-              )
-            }
-            ticketPortal={"#"}
-            isAvailable={event.description.en.length % 5 !== 0} // decide if event is sold out based on length of description.
-          />
-        ))}
+        {events.map(
+          (event) =>
+            isString(event.schedule.dates[0]?.date) && (
+              <Event
+                key={event.id}
+                city={event.city}
+                venue={event.venue_name}
+                date={
+                  new Date(
+                    `${event.schedule.dates[0].date} ${event.schedule.dates[0].start_time}`,
+                  )
+                }
+                ticketPortal={"#"}
+                isAvailable={event.description.en.length % 5 !== 0} // decide if event is sold out based on length of description.
+              />
+            ),
+        )}
       </div>
     </section>
   );
