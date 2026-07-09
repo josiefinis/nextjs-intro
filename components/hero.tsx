@@ -29,7 +29,7 @@ export default function Hero() {
           up in Smoke
         </p>
         <Button
-          href="#"
+          href="/listen"
           classes="bg-pink-100 text-pink-600 uppercase text-fluid-xl"
         >
           Out Now

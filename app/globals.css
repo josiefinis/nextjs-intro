@@ -14,7 +14,8 @@
   --text-fluid-lg: clamp(1rem, 1cqi + 0.5rem, 4rem);
   --text-fluid-xl: clamp(1rem, 1.8cqi + 0.5rem, 4rem);
   --text-fluid-2xl: clamp(2rem, 4cqi + 0.5rem, 8rem);
-  --text-fluid-3xl: clamp(2rem, 6cqi + 0.5rem, 8rem);
+  --text-fluid-3xl: clamp(2rem, 6cqi + 0.5rem, 12rem);
+  --text-fluid-4xl: clamp(2rem, 8cqi + 0.5rem, 16rem);
   --text-fluid-9xl: clamp(3rem, 18cqi + 0.5rem, 30rem);
   --mx-fluid: clamp(0.5rem, 2cqi, 3rem);
 }

@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/merch", label: "Merch" },
-  { href: "/about", label: "Signup" },
+  { href: "/signup", label: "Signup" },
   { href: "/listen", label: "Listen" },
-  { href: "/live", label: "Live" },
+  { href: "/#live", label: "Live" },
 ];
 
 export default function MainNav() {

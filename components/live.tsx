@@ -44,8 +44,8 @@ function Event({ city, venue, date, ticketPortal, isAvailable }: EventProps) {
 
 export default function Live() {
   return (
-    <section aria-labelledby="live-heading" className="mx-4">
-      <h2 id="live-heading" className="font-display text-fluid-3xl text-center">
+    <section aria-labelledby="live" className="mx-4">
+      <h2 id="live" className="font-display text-fluid-4xl text-center my-8">
         Live
       </h2>
       <div className="grid gap-24 md:gap-12">
