@@ -38,7 +38,7 @@ function Event({ city, venue, date, ticketPortal, isAvailable }: EventProps) {
       <Button
         href={ticketPortal}
         children={isAvailable ? "Get Tickets" : "Sold Out"}
-        classes="mx-auto font-normal"
+        classes={`mx-auto font-normal ${!isAvailable && "pointer-events-none"}`}
       />
     </article>
   );
