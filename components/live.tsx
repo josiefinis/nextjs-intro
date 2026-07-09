@@ -25,7 +25,9 @@ interface EventProps {
 
 function Event({ city, venue, date, ticketPortal, isAvailable }: EventProps) {
   return (
-    <article className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-4 items-center text-fluid-lg uppercase text-center font-display">
+    <article
+      className={`grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-4 items-center text-fluid-lg uppercase text-center font-display ${!isAvailable && "opacity-50"}`}
+    >
       <header>
         <h3 className="text-xl md:text-fluid-xl">{city}</h3>
         <p>{venue}</p>
