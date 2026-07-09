@@ -13,7 +13,7 @@ export default function Hero() {
           alt=""
           loading="eager"
         />
-        <h1 className="font-fruktur text-fluid-9xl py-1 text-center">
+        <h1 className="font-fruktur text-fluid-9xl py-1 text-center text-pink-50">
           JosifiniX
         </h1>
       </header>
