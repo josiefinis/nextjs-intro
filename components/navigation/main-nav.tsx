@@ -12,18 +12,22 @@ const navLinks = [
 export default function MainNav() {
   return (
     <nav className="flex justify-center gap-4 items-center m-4 | font-display text-fluid-xl">
-      <Link href={"/"} aria-label="Home" className="me-auto ">
+      <Link
+        href={"/"}
+        aria-label="Home"
+        className="me-auto focus-visible:outline-none"
+      >
         <Image
           src={logo}
           alt=""
-          className="h-10 w-auto hover:drop-shadow-lg hover:drop-shadow-pink-50"
+          className="h-10 w-auto hover:drop-shadow-lg hover:drop-shadow-pink-50 in-focus-visible:drop-shadow-lg in-focus-visible:drop-shadow-pink-50"
         />
       </Link>
       {navLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          className="hover:text-shadow-lg hover:text-shadow-pink-50 me-auto"
+          className="hover:text-shadow-lg hover:text-shadow-pink-50 focus-visible:outline-none focus-visible:text-shadow-lg focus-visible:text-shadow-pink-50 me-auto"
         >
           {link.label}
         </Link>
