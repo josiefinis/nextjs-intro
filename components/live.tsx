@@ -48,10 +48,20 @@ function Event({ city, venue, date, ticketPortal, isAvailable }: EventProps) {
 export default function Live() {
   return (
     <section aria-labelledby="live" className="mx-4">
-      <h2 id="live" className="font-display text-fluid-4xl text-center my-8">
+      <h2 id="live" className="font-display text-fluid-4xl text-center mbs-8">
         Live
       </h2>
-      <div className="grid gap-24 md:gap-12">
+      <div className="text-center mbe-24">
+        <p className="font-display text-fluid-xl">
+          Currently supporting in Stockholm
+        </p>
+        <small className="font-display text-fluid-sm text-pretty">
+          As a fictional artist JosifiniX will not be appearing on any stages
+          but will be supporting in her fictional heart, maybe in the audience,
+          maybe on fire.
+        </small>
+      </div>
+      <div className="grid gap-24 md:gap-12 inline-full">
         {events.map(
           (event) =>
             isString(event.schedule.dates[0]?.date) && (

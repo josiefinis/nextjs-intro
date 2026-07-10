@@ -13,7 +13,8 @@
   --font-fruktur: var(--font-fruktur);
   --font-cherish: var(--font-cherish);
   --font-display: var(--font-josefin-sans);
-  --text-fluid-lg: clamp(1rem, 1cqi + 0.5rem, 4rem);
+  --text-fluid-sm: clamp(0.6rem, 0.8cqi + 0.4rem, 2rem);
+  --text-fluid-lg: clamp(1rem, 1cqi + 0.5rem, 2rem);
   --text-fluid-xl: clamp(1rem, 1.8cqi + 0.5rem, 4rem);
   --text-fluid-2xl: clamp(2rem, 4cqi + 0.5rem, 8rem);
   --text-fluid-3xl: clamp(2rem, 6cqi + 0.5rem, 12rem);
