@@ -13,34 +13,30 @@ function isString(value: string | undefined): value is string {
   return (value as string).length !== undefined;
 }
 
+function cleanTitle(title: string, venue: string): string {
+  const regex = new RegExp(` ((on)|(at)) ${venue}`);
+  return title.replace(regex, "");
+}
+
 const events = data.results;
 
 interface EventProps {
-  city: string;
+  title: string;
   venue: string;
   date: Date;
-  ticketPortal: string;
-  isAvailable: boolean;
 }
 
-function Event({ city, venue, date, ticketPortal, isAvailable }: EventProps) {
+function Event({ title, venue, date }: EventProps) {
   return (
-    <article
-      className={`grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-4 items-center text-fluid-lg uppercase text-center font-display ${!isAvailable && "opacity-50"}`}
-    >
+    <article className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-4 md:gap-8 items-center text-fluid-lg uppercase text-center font-display text-gray-300">
       <header>
-        <h3 className="text-xl md:text-fluid-xl">{city}</h3>
+        <h3 className="text-xl md:text-fluid-xl text-white">{title}</h3>
         <p>{venue}</p>
       </header>
       <time dateTime={date.toISOString()} className="order-first md:text-right">
         {longDate.format(date)}
       </time>
-      <Button
-        href={ticketPortal}
-        children={isAvailable ? "Get Tickets" : "Sold Out"}
-        classes="mx-auto font-normal"
-        isDisabled={!isAvailable}
-      />
+      <Button href="#" children="More info" classes="mx-auto font-normal" />
     </article>
   );
 }
@@ -67,15 +63,13 @@ export default function Live() {
             isString(event.schedule.dates[0]?.date) && (
               <Event
                 key={event.id}
-                city={event.city}
+                title={cleanTitle(event.title.en, event.venue_name)}
                 venue={event.venue_name}
                 date={
                   new Date(
                     `${event.schedule.dates[0].date} ${event.schedule.dates[0].start_time}`,
                   )
                 }
-                ticketPortal={"#"}
-                isAvailable={event.description.en.length % 5 !== 0} // decide if event is sold out based on length of description.
               />
             ),
         )}
