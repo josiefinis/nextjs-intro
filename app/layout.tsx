@@ -14,9 +14,9 @@ const fruktur = Fruktur({
   subsets: ["latin"],
 });
 
-const protestRevolution = Cherish({
+const cherish = Cherish({
   weight: "400",
-  variable: "--font-protest-revolution",
+  variable: "--font-cherish",
   subsets: ["latin"],
 });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fruktur.variable} ${josefinSans.variable} ${protestRevolution.variable} h-full antialiased`}
+      className={`${fruktur.variable} ${josefinSans.variable} ${cherish.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a

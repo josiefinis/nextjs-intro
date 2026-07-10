@@ -31,7 +31,7 @@ export default function Hero() {
         alt=""
       />
       <div className="flex justify-end items-center gap-8 p-4">
-        <p className="text-pink-50 text-fluid-3xl z-10 font-protest-revolution">
+        <p className="text-pink-50 text-fluid-3xl z-10 font-cherish">
           up in Smoke
         </p>
         <Button
