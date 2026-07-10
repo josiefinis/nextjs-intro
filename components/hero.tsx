@@ -36,7 +36,7 @@ export default function Hero() {
         </p>
         <Button
           href="/listen"
-          classes="bg-pink-100 text-pink-600 uppercase text-fluid-xl"
+          classes="bg-pink-100 text-pink-600 uppercase text-fluid-xl z-30"
         >
           Out Now
         </Button>
