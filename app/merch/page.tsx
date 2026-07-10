@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MerchPage() {
   return (
-    <main className="flex flex-col items-center *:mx-4 *:md:mx-12">
+    <main id="main" className="flex flex-col items-center *:mx-4 *:md:mx-12">
       <h1 className="text-fluid-4xl font-display">Merch</h1>
       <article
         aria-labelledby="time-and-death"

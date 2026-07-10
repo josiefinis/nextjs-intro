@@ -36,6 +36,12 @@ export default function RootLayout({
       className={`${fruktur.variable} ${josefinSans.variable} ${protestRevolution.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main"
+          className="absolute inset-bs-[calc(-1000px)] focus-visible:inset-bs-0 | inline-full py-4 text-center bg-pink-700 text-white font-display text-fluid-xl"
+        >
+          To main content
+        </a>
         <MainNav />
         {children}
       </body>
