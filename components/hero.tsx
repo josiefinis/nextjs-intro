@@ -2,13 +2,14 @@ import Image from "next/image";
 import Button from "@/components/button";
 import background from "@/public/pink-sky.jpg";
 import wingedHeart from "@/public/winged-heart.png";
+import fallingEmbers from "@/public/falling-embers.png";
 
 export default function Hero() {
   return (
     <section className="relative">
       <header className="relative z-10">
         <Image
-          className="w-full h-auto object-cover pbs-4 z-0"
+          className="w-full h-auto object-cover pbs-4 z-30"
           src={wingedHeart}
           alt=""
         />
@@ -22,6 +23,12 @@ export default function Hero() {
         fill
         alt=""
         loading="eager"
+      />
+      <Image
+        className="w-full h-auto object-cover z-20"
+        src={fallingEmbers}
+        fill
+        alt=""
       />
       <div className="flex justify-end items-center gap-8 p-4">
         <p className="text-pink-50 text-fluid-3xl z-10 font-protest-revolution">
