@@ -9,8 +9,13 @@ const longDate = Intl.DateTimeFormat("sv-SE", {
   minute: "numeric",
 });
 
-function isString(value: string | undefined): value is string {
-  return (value as string).length !== undefined;
+function isDate(variable: Date | undefined): variable is Date {
+  try {
+    variable?.toISOString();
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function cleanTitle(title: string, venue: string): string {
@@ -23,7 +28,7 @@ const events = data.results;
 interface EventProps {
   title: string;
   venue: string;
-  date: Date;
+  date: Date | undefined;
 }
 
 function Event({ title, venue, date }: EventProps) {
@@ -33,9 +38,13 @@ function Event({ title, venue, date }: EventProps) {
         <h3 className="text-xl md:text-fluid-xl text-white">{title}</h3>
         <p>{venue}</p>
       </header>
-      <time dateTime={date.toISOString()} className="order-first md:text-right">
-        {longDate.format(date)}
-      </time>
+      {isDate(date) ? (
+        <time dateTime={date.toISOString()} className="order-first">
+          {longDate.format(date)}
+        </time>
+      ) : (
+        <p className="order-first">TBD</p>
+      )}
       <Button href="#" children="More info" classes="mx-auto font-normal" />
     </article>
   );
@@ -58,21 +67,20 @@ export default function Live() {
         </small>
       </div>
       <div className="grid gap-24 md:gap-12 inline-full">
-        {events.map(
-          (event) =>
-            isString(event.schedule.dates[0]?.date) && (
-              <Event
-                key={event.id}
-                title={cleanTitle(event.title.en, event.venue_name)}
-                venue={event.venue_name}
-                date={
-                  new Date(
-                    `${event.schedule.dates[0].date} ${event.schedule.dates[0].start_time}`,
-                  )
-                }
-              />
-            ),
-        )}
+        {events.map((event) => {
+          return (
+            <Event
+              key={event.id}
+              title={cleanTitle(event.title.en, event.venue_name)}
+              venue={event.venue_name}
+              date={
+                new Date(
+                  `${event.schedule.dates[0]?.date} ${event.schedule.dates[0]?.start_time}`,
+                )
+              }
+            />
+          );
+        })}
       </div>
     </section>
   );
