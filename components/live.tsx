@@ -67,19 +67,25 @@ export default function Live() {
         </small>
       </div>
       <div className="grid gap-24 md:gap-12 inline-full">
-        {events.map((event) => {
-          return (
-            <Event
-              key={event.id}
-              title={cleanTitle(event.title.en, event.venue_name)}
-              venue={event.venue_name}
-              date={
-                new Date(
-                  `${event.schedule.dates[0]?.date} ${event.schedule.dates[0]?.start_time}`,
-                )
-              }
-            />
-          );
+        {events.flatMap((event) => {
+          let i = 0;
+          let arr = [];
+          // Some events are scheduled on more than one date. Create a separate card for each date.
+          do {
+            arr.push(
+              <Event
+                key={`${event.id}${i}`}
+                title={cleanTitle(event.title.en, event.venue_name)}
+                venue={event.venue_name}
+                date={
+                  new Date(
+                    `${event.schedule.dates[i]?.date} ${event.schedule.dates[i]?.start_time}`,
+                  )
+                }
+              />,
+            );
+          } while (++i < event.schedule.dates.length);
+          return arr;
         })}
       </div>
     </section>
