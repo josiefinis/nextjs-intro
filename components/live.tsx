@@ -57,13 +57,9 @@ export default function Live() {
         Live
       </h2>
       <div className="text-center mbe-24">
-        <p className="font-display text-fluid-xl">
-          Currently supporting in Stockholm
-        </p>
+        <p className="font-display text-fluid-xl">(Supporting)</p>
         <small className="font-display text-fluid-sm text-pretty">
-          As a fictional artist JosifiniX will not be appearing on any stages
-          but will be supporting in her fictional heart, maybe in the audience,
-          maybe on fire.
+          ((in her heart))
         </small>
       </div>
       <div className="grid gap-24 md:gap-12 inline-full">
