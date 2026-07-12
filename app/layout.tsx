@@ -40,7 +40,7 @@ export default function RootLayout({
           href="#main"
           className="absolute inset-bs-[calc(-1000px)] focus-visible:inset-bs-0 | inline-full py-4 text-center bg-pink-700 text-white font-display text-fluid-xl"
         >
-          To main content
+          Skip to content
         </a>
         <MainNav />
         {children}
