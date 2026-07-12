@@ -12,7 +12,7 @@ const navLinks = [
 export default function MainNav() {
   return (
     <nav className="flex justify-center gap-4 items-center m-4 | font-display text-fluid-xl">
-      <Link
+      <a
         href={"/"}
         aria-label="Home"
         className="me-auto focus-visible:outline-none"
@@ -22,7 +22,7 @@ export default function MainNav() {
           alt=""
           className="h-10 w-auto hover:drop-shadow-lg hover:drop-shadow-pink-50 in-focus-visible:drop-shadow-lg in-focus-visible:drop-shadow-pink-50"
         />
-      </Link>
+      </a>
       {navLinks.map((link) => (
         <a
           key={link.href}
