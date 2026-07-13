@@ -1,22 +1,6 @@
 import Button from "@/components/button";
+import EventDate from "@/components/event-date";
 import data from "@/data/events.json";
-
-const longDate = Intl.DateTimeFormat("sv-SE", {
-  weekday: "short",
-  month: "short",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-});
-
-function isDate(variable: Date | undefined): variable is Date {
-  try {
-    variable?.toISOString();
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
@@ -39,13 +23,7 @@ function Event({ id, title, venue, date }: EventProps) {
         <h3 className="text-xl md:text-fluid-xl text-white">{title}</h3>
         <p>{venue}</p>
       </header>
-      {isDate(date) ? (
-        <time dateTime={date.toISOString()} className="order-first">
-          {longDate.format(date)}
-        </time>
-      ) : (
-        <p className="order-first">TBD</p>
-      )}
+      <EventDate date={date} className="order-first" />
       <Button
         href={`/event/${id}`}
         children="More info"
