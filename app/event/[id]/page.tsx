@@ -15,7 +15,8 @@ export default async function EventPage({
 
   return (
     <div>
-      <h1>{event.title.en}</h1>
+      <h1 className="font-display text-fluid-2xl">{event.title.en}</h1>
+      <p>{event.venue_name}</p>
     </div>
   );
 }

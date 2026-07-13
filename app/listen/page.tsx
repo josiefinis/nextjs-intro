@@ -1,7 +1,7 @@
 export default function ListenPage() {
   return (
-    <main id="main">
+    <div>
       <h1>Listen</h1>
-    </main>
+    </div>
   );
 }

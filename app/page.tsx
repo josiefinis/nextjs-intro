@@ -3,9 +3,9 @@ import Live from "@/components/live";
 
 export default function Home() {
   return (
-    <main id="main">
+    <div>
       <Hero />
       <Live />
-    </main>
+    </div>
   );
 }
