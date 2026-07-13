@@ -1,4 +1,4 @@
-const longDate = Intl.DateTimeFormat("sv-SE", {
+const longDate = Intl.DateTimeFormat("en-UK", {
   weekday: "short",
   month: "short",
   day: "numeric",
