@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
-import { getEventById, getSchedule } from "@/lib/util";
+import { getEventById, getSchedule } from "@/data/events";
 
 export async function generateMetadata({
   params,

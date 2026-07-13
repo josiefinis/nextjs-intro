@@ -12,3 +12,7 @@ export function getSchedule(id: string): Date[] {
     ) ?? []
   );
 }
+
+export function getEvents() {
+  return data.results;
+}

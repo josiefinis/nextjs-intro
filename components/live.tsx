@@ -1,13 +1,13 @@
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
-import data from "@/data/events.json";
+import { getEvents } from "@/data/events";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
   return title.replace(regex, "");
 }
 
-const events = data.results;
+const events = getEvents();
 
 interface EventProps {
   id: string;
