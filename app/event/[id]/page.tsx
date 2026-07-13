@@ -3,6 +3,20 @@ import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
 import { getEventById, getSchedule } from "@/lib/util";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const event = getEventById(id);
+
+  if (!event) {
+    return null;
+  }
+  return { title: event.title.en };
+}
+
 export default async function EventPage({
   params,
 }: {
