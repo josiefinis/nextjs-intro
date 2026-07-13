@@ -1,5 +1,7 @@
-import { getEventById } from "@/lib/util";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import EventDate from "@/components/event-date";
+import { getEventById, getSchedule } from "@/lib/util";
 
 export default async function EventPage({
   params,
@@ -8,15 +10,41 @@ export default async function EventPage({
 }) {
   const { id } = await params;
   const event = getEventById(id);
+  const schedule: Date[] = getSchedule(id);
 
   if (!event) {
     notFound();
   }
 
   return (
-    <div>
-      <h1 className="font-display text-fluid-2xl">{event.title.en}</h1>
-      <p>{event.venue_name}</p>
+    <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
+      <header>
+        <h1 className="font-display text-fluid-2xl">{event.title.en}</h1>
+        <p className="max-inline-[70ch]">{event.description.en}</p>
+      </header>
+      {schedule.map((date, index) => (
+        <EventDate
+          key={`${event.id}${index}`}
+          date={date}
+          className="text-fluid-xl"
+        />
+      ))}
+      <section aria-labelledby="venue">
+        <h2 id="venue" className="text-fluid-xl">
+          Venue
+        </h2>
+        <p>{event.venue_name}</p>
+        <address>
+          <p>{event.address}</p>
+          <p>
+            {event.zip_code} {event.city}
+          </p>
+        </address>
+        <p>Closest station: {event.closest_station}</p>
+      </section>
+      <Link href={event.external_website_url} prefetch={false}>
+        {event.external_website_url}
+      </Link>
     </div>
   );
 }
