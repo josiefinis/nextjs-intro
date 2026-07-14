@@ -1,3 +1,4 @@
+import type { Event } from "@/data/events";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents } from "@/data/events";
@@ -7,7 +8,7 @@ function cleanTitle(title: string, venue: string): string {
   return title.replace(regex, "");
 }
 
-const events = await fetchEvents([
+const events: Event[] = await fetchEvents([
   "hard-rock-metal",
   "dance-electronic",
   "indie-punk",

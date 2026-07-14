@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
+import type { Event } from "@/data/events";
 import { fetchEventById, getSchedule } from "@/data/events";
 import { replaceHtmlEntities } from "@/lib/util";
 
@@ -10,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const event = await fetchEventById(id);
+  const event: Event = await fetchEventById(id);
 
   if (!event) {
     return null;
@@ -24,7 +25,7 @@ export default async function EventPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const event = await fetchEventById(id);
+  const event: Event = await fetchEventById(id);
   const schedule: Date[] = getSchedule(event);
 
   if (!event) {

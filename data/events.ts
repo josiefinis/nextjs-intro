@@ -10,7 +10,7 @@ type Subcategory =
   | "reggae"
   | "classical";
 
-interface Event {
+export interface Event {
   id: string;
   title: { en: string; sv: string };
   description: { en: string; sv: string };
