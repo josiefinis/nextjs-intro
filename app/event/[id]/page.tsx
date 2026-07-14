@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
 import { fetchEventById, getSchedule } from "@/data/events";
+import { replaceHtmlEntities } from "@/lib/util";
 
 export async function generateMetadata({
   params,
@@ -34,7 +35,9 @@ export default async function EventPage({
     <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
       <header>
         <h1 className="font-display text-fluid-2xl">{event.title.en}</h1>
-        <p className="max-inline-[70ch]">{event.description.en}</p>
+        <p className="max-inline-[70ch]">
+          {replaceHtmlEntities(event.description.en)}
+        </p>
       </header>
       {schedule.map((date, index) => (
         <EventDate
