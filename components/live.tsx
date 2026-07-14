@@ -1,13 +1,17 @@
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
-import { getEvents } from "@/data/events";
+import { fetchEvents } from "@/data/events";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
   return title.replace(regex, "");
 }
 
-const events = getEvents();
+const events = await fetchEvents([
+  "hard-rock-metal",
+  "dance-electronic",
+  "indie-punk",
+]);
 
 interface EventProps {
   id: string;
