@@ -50,6 +50,16 @@ export interface Event {
   closest_station: "string";
 }
 
+const ids = new Map<string, string>();
+
+function mapIds(events: Event[]): void {
+  events.forEach((event) => ids.set(event.url, event.id));
+}
+
+export function getIdByUrl(url: string): string | undefined {
+  return ids.get(url);
+}
+
 export async function fetchEvents(
   subcategories: Subcategory[] = [],
 ): Promise<Event[]> {
@@ -59,7 +69,9 @@ export async function fetchEvents(
   const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&categories=music${filter}`;
   const fetched = await fetch(url);
   const data = await fetched.json();
-  return await data.results;
+  const events = await data.results;
+  mapIds(events);
+  return events;
 }
 
 export async function fetchEventById(id: string): Promise<Event> {

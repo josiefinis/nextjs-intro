@@ -15,13 +15,13 @@ const events: Event[] = await fetchEvents([
 ]);
 
 interface EventProps {
-  id: string;
+  url: string;
   title: string;
   venue: string;
   date: Date | undefined;
 }
 
-function Event({ id, title, venue, date }: EventProps) {
+function Event({ url, title, venue, date }: EventProps) {
   return (
     <article className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-4 md:gap-8 items-center text-fluid-lg uppercase text-center font-display text-gray-300">
       <header>
@@ -30,7 +30,7 @@ function Event({ id, title, venue, date }: EventProps) {
       </header>
       <EventDate date={date} className="order-first" />
       <Button
-        href={`/event/${id}`}
+        href={`/event/${url}`}
         children="More info"
         classes="mx-auto font-normal"
       />
@@ -59,7 +59,7 @@ export default function Live() {
             arr.push(
               <Event
                 key={`${event.id}${i}`}
-                id={event.id}
+                url={event.url}
                 title={cleanTitle(event.title.en, event.venue_name)}
                 venue={event.venue_name}
                 date={
