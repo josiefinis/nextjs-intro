@@ -1,7 +1,7 @@
 import type { Event } from "@/data/events";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
-import { fetchEvents } from "@/data/events";
+import { fetchEvents, getSchedule } from "@/data/events";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
@@ -34,7 +34,12 @@ function Event({ url, title, venue, date }: EventProps) {
 
 export default async function Live() {
   const events: Event[] = await fetchEvents({
-    subcategories: ["hard-rock-metal", "dance-electronic", "indie-punk"],
+    subcategories: [
+      "hard-rock-metal",
+      "dance-electronic",
+      "indie-punk",
+      "hip-hop-soul-rnb",
+    ],
   });
 
   return (
@@ -50,9 +55,10 @@ export default async function Live() {
       </div>
       <div className="grid gap-24 md:gap-12 inline-full">
         {events.flatMap((event) => {
+          const schedule = getSchedule(event);
+          // Some events are scheduled on more than one date. Create a separate card for each date.
           let i = 0;
           let arr = [];
-          // Some events are scheduled on more than one date. Create a separate card for each date.
           do {
             arr.push(
               <Event
@@ -60,14 +66,10 @@ export default async function Live() {
                 url={event.url}
                 title={cleanTitle(event.title.en, event.venue_name)}
                 venue={event.venue_name}
-                date={
-                  new Date(
-                    `${event.schedule.dates[i]?.date} ${event.schedule.dates[i]?.start_time}`,
-                  )
-                }
+                date={schedule[i]?.startTime}
               />,
             );
-          } while (++i < event.schedule.dates.length);
+          } while (++i < schedule.length);
           return arr;
         })}
       </div>
