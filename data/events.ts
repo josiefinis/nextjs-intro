@@ -1,3 +1,10 @@
+import { ensureError } from "@/lib/util";
+
+// From (Roger, 2023).
+export type Result<T, E extends Error = Error> =
+  | { success: true; result: T }
+  | { success: false; error: E };
+
 type Subcategory =
   | "jazz-blues"
   | "pop"
@@ -10,7 +17,7 @@ type Subcategory =
   | "reggae"
   | "classical";
 
-export interface Event {
+export interface EventResponse {
   id: string;
   title: { en: string; sv: string };
   description: { en: string; sv: string };
@@ -52,7 +59,7 @@ export interface Event {
 
 const ids = new Map<string, string>();
 
-function mapIds(events: Event[]): void {
+function mapIds(events: EventResponse[]): void {
   events.forEach((event) => ids.set(event.url, event.id));
 }
 
@@ -70,11 +77,12 @@ export async function fetchEvents({
   page = 1,
   size = 16,
   subcategories = [],
-}: fetchEventsProps): Promise<Event[]> {
+}: fetchEventsProps): Promise<EventResponse[]> {
   const filter = subcategories
     .map((subcategory) => `&subcategory=${subcategory}`)
     .join("");
   const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
+
   const fetched = await fetch(url);
   const data = await fetched.json();
   const events = await data.results;
@@ -82,11 +90,18 @@ export async function fetchEvents({
   return events;
 }
 
-export async function fetchEventById(id: string): Promise<Event> {
+export async function fetchEventById(
+  id: string,
+): Promise<Result<EventResponse>> {
   const url = `https://api.visitstockholm.com/api/public-v1/events/${id}/`;
-  const fetched = await fetch(url);
-  const data = await fetched.json();
-  return await data;
+  try {
+    const fetched = await fetch(url);
+    const data = await fetched.json();
+    return { success: true, result: data };
+  } catch (err) {
+    const error = ensureError(err);
+    return { success: false, error };
+  }
 }
 
 export interface ScheduleItem {
@@ -94,7 +109,7 @@ export interface ScheduleItem {
   endTime: Date;
 }
 
-export function getSchedule(event: Event): ScheduleItem[] {
+export function getSchedule(event: EventResponse): ScheduleItem[] {
   return (
     event?.schedule.dates.map((date) => {
       const startTime = new Date(`${date.date} ${date.start_time}`);
