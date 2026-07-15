@@ -57,14 +57,9 @@ export interface EventResponse {
   closest_station: "string";
 }
 
-const ids = new Map<string, string>();
-
-function mapIds(events: EventResponse[]): void {
-  events.forEach((event) => ids.set(event.url, event.id));
-}
-
-export function getIdByUrl(url: string): string | undefined {
-  return ids.get(url);
+export interface ScheduleItem {
+  startTime: Date;
+  endTime: Date;
 }
 
 interface fetchEventsProps {
@@ -77,17 +72,22 @@ export async function fetchEvents({
   page = 1,
   size = 16,
   subcategories = [],
-}: fetchEventsProps): Promise<EventResponse[]> {
+}: fetchEventsProps): Promise<Result<EventResponse[]>> {
   const filter = subcategories
     .map((subcategory) => `&subcategory=${subcategory}`)
     .join("");
   const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
 
-  const fetched = await fetch(url);
-  const data = await fetched.json();
-  const events = await data.results;
-  mapIds(events);
-  return events;
+  try {
+    const fetched = await fetch(url);
+    const data = await fetched.json();
+    const events = await data.results;
+    mapIds(events);
+    return { success: true, result: events };
+  } catch (err) {
+    const error = ensureError(err);
+    return { success: false, error };
+  }
 }
 
 export async function fetchEventById(
@@ -104,11 +104,6 @@ export async function fetchEventById(
   }
 }
 
-export interface ScheduleItem {
-  startTime: Date;
-  endTime: Date;
-}
-
 export function getSchedule(event: EventResponse): ScheduleItem[] {
   return (
     event?.schedule.dates.map((date) => {
@@ -118,3 +113,13 @@ export function getSchedule(event: EventResponse): ScheduleItem[] {
     }) ?? []
   );
 }
+
+export function getIdByUrl(url: string): string | undefined {
+  return ids.get(url);
+}
+
+function mapIds(events: EventResponse[]): void {
+  events.forEach((event) => ids.set(event.url, event.id));
+}
+
+const ids = new Map<string, string>();
