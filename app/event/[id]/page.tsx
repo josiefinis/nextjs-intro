@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
-import type { Event, ScheduleItem } from "@/data/events";
+import type { EventResponse, Result, ScheduleItem } from "@/data/events";
 import { fetchEventById, getIdByUrl, getSchedule } from "@/data/events";
 import { replaceHtmlEntities } from "@/lib/util";
 
@@ -16,10 +16,11 @@ export async function generateMetadata({
     return null;
   }
 
-  const event: Event = await fetchEventById(eventId);
-  if (!event) {
+  const response: Result<EventResponse> = await fetchEventById(eventId);
+  if (response.success === false) {
     return null;
   }
+  const event = response.result;
   return { title: event.title.en };
 }
 
@@ -34,11 +35,12 @@ export default async function EventPage({
     notFound();
   }
 
-  const event: Event = await fetchEventById(eventId);
-  const schedule: ScheduleItem[] = getSchedule(event);
-  if (!event) {
+  const response: Result<EventResponse> = await fetchEventById(eventId);
+  if (response.success === false) {
     notFound();
   }
+  const event = response.result;
+  const schedule: ScheduleItem[] = getSchedule(event);
 
   return (
     <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
