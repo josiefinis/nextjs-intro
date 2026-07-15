@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
-import type { Event } from "@/data/events";
+import type { Event, ScheduleItem } from "@/data/events";
 import { fetchEventById, getIdByUrl, getSchedule } from "@/data/events";
 import { replaceHtmlEntities } from "@/lib/util";
 
@@ -35,7 +35,7 @@ export default async function EventPage({
   }
 
   const event: Event = await fetchEventById(eventId);
-  const schedule: Date[] = getSchedule(event);
+  const schedule: ScheduleItem[] = getSchedule(event);
   if (!event) {
     notFound();
   }
@@ -48,10 +48,10 @@ export default async function EventPage({
           {replaceHtmlEntities(event.description.en)}
         </p>
       </header>
-      {schedule.map((date, index) => (
+      {schedule.map((scheduleItem, index) => (
         <EventDate
           key={`${event.id}${index}`}
-          date={date}
+          date={scheduleItem.startTime}
           className="text-fluid-xl"
         />
       ))}

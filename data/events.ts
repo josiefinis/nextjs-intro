@@ -89,10 +89,17 @@ export async function fetchEventById(id: string): Promise<Event> {
   return await data;
 }
 
-export function getSchedule(event: Event): Date[] {
+export interface ScheduleItem {
+  startTime: Date;
+  endTime: Date;
+}
+
+export function getSchedule(event: Event): ScheduleItem[] {
   return (
-    event?.schedule.dates.map(
-      (date) => new Date(`${date.date} ${date.start_time}`),
-    ) ?? []
+    event?.schedule.dates.map((date) => {
+      const startTime = new Date(`${date.date} ${date.start_time}`);
+      const endTime = new Date(`${date.date} ${date.end_time}`);
+      return { startTime, endTime };
+    }) ?? []
   );
 }
