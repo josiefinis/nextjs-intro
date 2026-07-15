@@ -8,12 +8,6 @@ function cleanTitle(title: string, venue: string): string {
   return title.replace(regex, "");
 }
 
-const events: Event[] = await fetchEvents([
-  "hard-rock-metal",
-  "dance-electronic",
-  "indie-punk",
-]);
-
 interface EventProps {
   url: string;
   title: string;
@@ -38,7 +32,13 @@ function Event({ url, title, venue, date }: EventProps) {
   );
 }
 
-export default function Live() {
+export default async function Live() {
+  const events: Event[] = await fetchEvents([
+    "hard-rock-metal",
+    "dance-electronic",
+    "indie-punk",
+  ]);
+
   return (
     <section aria-labelledby="live" className="mx-4">
       <h2 id="live" className="font-display text-fluid-4xl text-center mbs-8">
