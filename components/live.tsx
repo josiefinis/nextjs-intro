@@ -1,4 +1,4 @@
-import type { Event } from "@/data/events";
+import type { EventResponse, Result } from "@/data/events";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents, getSchedule } from "@/data/events";
@@ -32,8 +32,37 @@ function Event({ url, title, venue, date }: EventProps) {
   );
 }
 
+interface EventGridProps {
+  events: EventResponse[];
+}
+
+function EventGrid({ events }: EventGridProps) {
+  return (
+    <div className="grid gap-24 md:gap-12 inline-full">
+      {events.flatMap((event) => {
+        const schedule = getSchedule(event);
+        // Some events are scheduled on more than one date. Create a separate card for each date.
+        let i = 0;
+        let arr = [];
+        do {
+          arr.push(
+            <Event
+              key={`${event.id}${i}`}
+              url={event.url}
+              title={cleanTitle(event.title.en, event.venue_name)}
+              venue={event.venue_name}
+              date={schedule[i]?.startTime}
+            />,
+          );
+        } while (++i < schedule.length);
+        return arr;
+      })}
+    </div>
+  );
+}
+
 export default async function Live() {
-  const events: Event[] = await fetchEvents({
+  const response: Result<EventResponse[]> = await fetchEvents({
     subcategories: [
       "hard-rock-metal",
       "dance-electronic",
@@ -41,6 +70,7 @@ export default async function Live() {
       "hip-hop-soul-rnb",
     ],
   });
+  const events: EventResponse[] = response.success ? response.result : [];
 
   return (
     <section aria-labelledby="live" className="mx-4">
@@ -53,26 +83,13 @@ export default async function Live() {
           ((in her heart))
         </small>
       </div>
-      <div className="grid gap-24 md:gap-12 inline-full">
-        {events.flatMap((event) => {
-          const schedule = getSchedule(event);
-          // Some events are scheduled on more than one date. Create a separate card for each date.
-          let i = 0;
-          let arr = [];
-          do {
-            arr.push(
-              <Event
-                key={`${event.id}${i}`}
-                url={event.url}
-                title={cleanTitle(event.title.en, event.venue_name)}
-                venue={event.venue_name}
-                date={schedule[i]?.startTime}
-              />,
-            );
-          } while (++i < schedule.length);
-          return arr;
-        })}
-      </div>
+      {response.success ? (
+        <EventGrid events={events} />
+      ) : (
+        <p className="text-fluid-lg text-center mbe-12">
+          There was a problem retrieving live events. Please try again later.
+        </p>
+      )}
     </section>
   );
 }
