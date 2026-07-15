@@ -60,13 +60,21 @@ export function getIdByUrl(url: string): string | undefined {
   return ids.get(url);
 }
 
-export async function fetchEvents(
-  subcategories: Subcategory[] = [],
-): Promise<Event[]> {
+interface fetchEventsProps {
+  page?: number;
+  size?: number;
+  subcategories?: Subcategory[];
+}
+
+export async function fetchEvents({
+  page = 1,
+  size = 16,
+  subcategories = [],
+}: fetchEventsProps): Promise<Event[]> {
   const filter = subcategories
     .map((subcategory) => `&subcategory=${subcategory}`)
     .join("");
-  const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&categories=music${filter}`;
+  const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
   const fetched = await fetch(url);
   const data = await fetched.json();
   const events = await data.results;

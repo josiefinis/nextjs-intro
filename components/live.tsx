@@ -33,11 +33,9 @@ function Event({ url, title, venue, date }: EventProps) {
 }
 
 export default async function Live() {
-  const events: Event[] = await fetchEvents([
-    "hard-rock-metal",
-    "dance-electronic",
-    "indie-punk",
-  ]);
+  const events: Event[] = await fetchEvents({
+    subcategories: ["hard-rock-metal", "dance-electronic", "indie-punk"],
+  });
 
   return (
     <section aria-labelledby="live" className="mx-4">
