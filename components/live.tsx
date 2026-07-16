@@ -1,4 +1,5 @@
-import type { EventResponse, Result } from "@/data/events";
+import type { Result } from "@/lib/errors";
+import type { EventResponse } from "@/lib/types";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents, getSchedule } from "@/data/events";
@@ -71,6 +72,9 @@ export default async function Live() {
     ],
   });
   const events: EventResponse[] = response.success ? response.result : [];
+  if (!response.success) {
+    console.error(response.error.context);
+  }
 
   return (
     <section aria-labelledby="live" className="mx-4">

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
-import type { EventResponse, Result, ScheduleItem } from "@/data/events";
+import type { EventResponse, ScheduleItem } from "@/lib/types";
+import type { Result } from "@/lib/errors";
 import { fetchEventById, getIdByUrl, getSchedule } from "@/data/events";
 import { replaceHtmlEntities } from "@/lib/util";
 
