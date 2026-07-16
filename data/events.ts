@@ -1,71 +1,20 @@
-import { ensureError } from "@/lib/util";
+import { ApiError, ensureError, Result } from "@/lib/errors";
+import type {
+  EventResponse,
+  EventsResponse,
+  fetchEventsProps,
+  ScheduleItem,
+} from "@/lib/types";
 
-// From (Roger, 2023).
-export type Result<T, E extends Error = Error> =
-  | { success: true; result: T }
-  | { success: false; error: E };
-
-type Subcategory =
-  | "jazz-blues"
-  | "pop"
-  | "dance-electronic"
-  | "hip-hop-soul-rnb"
-  | "hard-rock-metal"
-  | "indie-punk"
-  | "country-folk"
-  | "rock"
-  | "reggae"
-  | "classical";
-
-export interface EventResponse {
-  id: string;
-  title: { en: string; sv: string };
-  description: { en: string; sv: string };
-  external_website_url: string;
-  url: string;
-  address: string;
-  venue_name: string;
-  zip_code: string;
-  city: string;
-  location: {
-    latitude: number;
-    longitude: number;
-  };
-  created_at: string;
-  modified_at: string;
-  start_date: string;
-  end_date: string;
-  start_time: string;
-  end_time: string;
-  categories: [
-    {
-      title: "string";
-      slug: "string";
-      subcategories: "string";
-    },
-  ];
-  schedule: {
-    range: unknown;
-    dates: [
-      {
-        date: string;
-        start_time: string;
-        end_time: string;
-      },
-    ];
-  };
-  closest_station: "string";
-}
-
-export interface ScheduleItem {
-  startTime: Date;
-  endTime: Date;
-}
-
-interface fetchEventsProps {
-  page?: number;
-  size?: number;
-  subcategories?: Subcategory[];
+async function apiFetch(url: string): Promise<EventResponse | EventsResponse> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    const context = { status: res.status, url: res.url };
+    throw new ApiError("Fetch failed", { context: context });
+  }
+  const data = await res.json();
+  console.log(data);
+  return data;
 }
 
 export async function fetchEvents({
@@ -79,9 +28,8 @@ export async function fetchEvents({
   const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
 
   try {
-    const fetched = await fetch(url);
-    const data = await fetched.json();
-    const events = await data.results;
+    const data = (await apiFetch(url)) as EventsResponse;
+    const events = data.results;
     mapIds(events);
     return { success: true, result: events };
   } catch (err) {
@@ -95,8 +43,7 @@ export async function fetchEventById(
 ): Promise<Result<EventResponse>> {
   const url = `https://api.visitstockholm.com/api/public-v1/events/${id}/`;
   try {
-    const fetched = await fetch(url);
-    const data = await fetched.json();
+    const data = (await apiFetch(url)) as EventResponse;
     return { success: true, result: data };
   } catch (err) {
     const error = ensureError(err);
