@@ -36,12 +36,16 @@ export async function fetchEvents({
     return { success: true, result: eventsPage };
   } catch (err) {
     const error = ensureError(err);
-    return { success: false, error };
+    if (error instanceof ApiError) {
+      return { success: false, error };
+    }
+    throw error;
   }
 }
 
 export async function fetchEventById(id: string): Promise<Result<Event>> {
   const url = `https://api.visitstockholm.com/api/public-v1/events/${id}/`;
+
   try {
     let data: EventResponse = (await apiFetch(url)) as EventResponse;
     data = initEventResponse(data);
@@ -49,7 +53,10 @@ export async function fetchEventById(id: string): Promise<Result<Event>> {
     return { success: true, result: event };
   } catch (err) {
     const error = ensureError(err);
-    return { success: false, error };
+    if (error instanceof ApiError) {
+      return { success: false, error };
+    }
+    throw error;
   }
 }
 
