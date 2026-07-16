@@ -53,24 +53,34 @@ export interface EventResponse {
   end_date: string;
   start_time: string;
   end_time: string;
-  categories: [
-    {
-      title: "string";
-      slug: "string";
-      subcategories: "string";
-    },
-  ];
+  categories: {
+    title: string;
+    slug: string;
+    subcategories: string;
+  }[];
   schedule: {
     range: unknown;
-    dates: [
-      {
-        date: string;
-        start_time: string;
-        end_time: string;
-      },
-    ];
+    dates: {
+      date: string;
+      start_time: string;
+      end_time: string;
+    }[];
   };
-  closest_station: "string";
+  closest_station: string;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  externalWebsiteUrl: string;
+  url: string;
+  address: string;
+  venueName: string;
+  zipCode: string;
+  city: string;
+  schedule: ScheduleItem[];
+  closestStation: string;
 }
 
 export interface ScheduleItem {
