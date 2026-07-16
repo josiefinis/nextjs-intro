@@ -1,11 +1,19 @@
 import Hero from "@/components/hero";
 import Live from "@/components/live";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
+  const { page = "1", size = "16" } = await searchParams;
+  const currentPage = Number(page);
+  const currentSize = Number(size);
+
   return (
     <div>
       <Hero />
-      <Live />
+      <Live page={currentPage} size={currentSize} />
     </div>
   );
 }
