@@ -2,9 +2,11 @@ import { ApiError, ensureError, Result } from "@/lib/errors";
 import type {
   EventResponse,
   EventsResponse,
+  Event,
   fetchEventsProps,
   ScheduleItem,
 } from "@/lib/types";
+import { replaceHtmlEntities } from "@/lib/util";
 
 async function apiFetch(url: string): Promise<EventResponse | EventsResponse> {
   const res = await fetch(url);
@@ -13,7 +15,6 @@ async function apiFetch(url: string): Promise<EventResponse | EventsResponse> {
     throw new ApiError("Fetch failed", { context: context });
   }
   const data = await res.json();
-  console.log(data);
   return data;
 }
 
@@ -21,15 +22,17 @@ export async function fetchEvents({
   page = 1,
   size = 16,
   subcategories = [],
-}: fetchEventsProps): Promise<Result<EventResponse[]>> {
+}: fetchEventsProps): Promise<Result<Event[]>> {
   const filter = subcategories
     .map((subcategory) => `&subcategory=${subcategory}`)
     .join("");
   const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
 
   try {
-    const data = (await apiFetch(url)) as EventsResponse;
-    const events = data.results;
+    const data: EventsResponse = (await apiFetch(url)) as EventsResponse;
+    const events: Event[] = data.results
+      .map((d) => initEventResponse(d))
+      .map((d) => toEvent(d));
     mapIds(events);
     return { success: true, result: events };
   } catch (err) {
@@ -38,22 +41,86 @@ export async function fetchEvents({
   }
 }
 
-export async function fetchEventById(
-  id: string,
-): Promise<Result<EventResponse>> {
+export async function fetchEventById(id: string): Promise<Result<Event>> {
   const url = `https://api.visitstockholm.com/api/public-v1/events/${id}/`;
   try {
-    const data = (await apiFetch(url)) as EventResponse;
-    return { success: true, result: data };
+    let data: EventResponse = (await apiFetch(url)) as EventResponse;
+    data = initEventResponse(data);
+    const event: Event = toEvent(data);
+    return { success: true, result: event };
   } catch (err) {
     const error = ensureError(err);
     return { success: false, error };
   }
 }
 
-export function getSchedule(event: EventResponse): ScheduleItem[] {
+function toEvent(data: EventResponse): Event {
+  return {
+    id: data.id,
+    title: data.title.en,
+    description: replaceHtmlEntities(data.description.en),
+    externalWebsiteUrl: data.external_website_url,
+    url: data.url,
+    address: data.address,
+    venueName: data.venue_name,
+    zipCode: data.zip_code,
+    city: data.city,
+    schedule: getSchedule(data.schedule.dates),
+    closestStation: data.closest_station,
+  };
+}
+
+function initEventResponse(options?: Partial<EventResponse>): EventResponse {
+  const defaults = {
+    id: "",
+    title: { en: "", sv: "" },
+    description: { en: "", sv: "" },
+    external_website_url: "",
+    url: "",
+    address: "",
+    venue_name: "",
+    zip_code: "",
+    city: "",
+    location: {
+      latitude: 0,
+      longitude: 0,
+    },
+    created_at: "",
+    modified_at: "",
+    start_date: "",
+    end_date: "",
+    start_time: "",
+    end_time: "",
+    categories: [
+      {
+        title: "",
+        slug: "",
+        subcategories: "",
+      },
+    ],
+    schedule: {
+      range: null,
+      dates: [
+        {
+          date: "",
+          start_time: "",
+          end_time: "",
+        },
+      ],
+    },
+    closest_station: "",
+  };
+  return {
+    ...defaults,
+    ...options,
+  };
+}
+
+export function getSchedule(
+  dates: { date: string; start_time: string; end_time: string }[],
+): ScheduleItem[] {
   return (
-    event?.schedule.dates.map((date) => {
+    dates.map((date) => {
       const startTime = new Date(`${date.date} ${date.start_time}`);
       const endTime = new Date(`${date.date} ${date.end_time}`);
       return { startTime, endTime };
@@ -65,7 +132,7 @@ export function getIdByUrl(url: string): string | undefined {
   return ids.get(url);
 }
 
-function mapIds(events: EventResponse[]): void {
+function mapIds(events: Event[]): void {
   events.forEach((event) => ids.set(event.url, event.id));
 }
 

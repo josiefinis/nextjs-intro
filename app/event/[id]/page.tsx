@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import EventDate from "@/components/event-date";
-import type { EventResponse, ScheduleItem } from "@/lib/types";
+import type { Event } from "@/lib/types";
 import type { Result } from "@/lib/errors";
-import { fetchEventById, getIdByUrl, getSchedule } from "@/data/events";
+import { fetchEventById, getIdByUrl } from "@/data/events";
 import { replaceHtmlEntities } from "@/lib/util";
 
 export async function generateMetadata({
@@ -17,12 +17,12 @@ export async function generateMetadata({
     return null;
   }
 
-  const response: Result<EventResponse> = await fetchEventById(eventId);
+  const response: Result<Event> = await fetchEventById(eventId);
   if (response.success === false) {
     return null;
   }
   const event = response.result;
-  return { title: event.title.en };
+  return { title: event.title };
 }
 
 export default async function EventPage({
@@ -36,22 +36,20 @@ export default async function EventPage({
     notFound();
   }
 
-  const response: Result<EventResponse> = await fetchEventById(eventId);
+  const response: Result<Event> = await fetchEventById(eventId);
   if (response.success === false) {
+    console.warn(response.error.context);
     notFound();
   }
   const event = response.result;
-  const schedule: ScheduleItem[] = getSchedule(event);
 
   return (
     <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
       <header>
-        <h1 className="font-display text-fluid-2xl">{event.title.en}</h1>
-        <p className="max-inline-[70ch]">
-          {replaceHtmlEntities(event.description.en)}
-        </p>
+        <h1 className="font-display text-fluid-2xl">{event.title}</h1>
+        <p className="max-inline-[70ch]">{event.description}</p>
       </header>
-      {schedule.map((scheduleItem, index) => (
+      {event.schedule.map((scheduleItem, index) => (
         <EventDate
           key={`${event.id}${index}`}
           date={scheduleItem.startTime}
@@ -62,17 +60,17 @@ export default async function EventPage({
         <h2 id="venue" className="text-fluid-xl">
           Venue
         </h2>
-        <p>{event.venue_name}</p>
+        <p>{event.venueName}</p>
         <address>
           <p>{event.address}</p>
           <p>
-            {event.zip_code} {event.city}
+            {event.zipCode} {event.city}
           </p>
         </address>
-        <p>Closest station: {event.closest_station}</p>
+        <p>Closest station: {event.closestStation}</p>
       </section>
-      <Link href={event.external_website_url} prefetch={false}>
-        {event.external_website_url}
+      <Link href={event.externalWebsiteUrl} prefetch={false}>
+        {event.externalWebsiteUrl}
       </Link>
     </div>
   );

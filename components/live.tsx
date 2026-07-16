@@ -1,8 +1,8 @@
 import type { Result } from "@/lib/errors";
-import type { EventResponse } from "@/lib/types";
+import type { Event } from "@/lib/types";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
-import { fetchEvents, getSchedule } from "@/data/events";
+import { fetchEvents } from "@/data/events";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
@@ -34,14 +34,13 @@ function Event({ url, title, venue, date }: EventProps) {
 }
 
 interface EventGridProps {
-  events: EventResponse[];
+  events: Event[];
 }
 
 function EventGrid({ events }: EventGridProps) {
   return (
     <div className="grid gap-24 md:gap-12 inline-full">
       {events.flatMap((event) => {
-        const schedule = getSchedule(event);
         // Some events are scheduled on more than one date. Create a separate card for each date.
         let i = 0;
         let arr = [];
@@ -50,12 +49,12 @@ function EventGrid({ events }: EventGridProps) {
             <Event
               key={`${event.id}${i}`}
               url={event.url}
-              title={cleanTitle(event.title.en, event.venue_name)}
-              venue={event.venue_name}
-              date={schedule[i]?.startTime}
+              title={cleanTitle(event.title, event.venueName)}
+              venue={event.venueName}
+              date={event.schedule[i]?.startTime}
             />,
           );
-        } while (++i < schedule.length);
+        } while (++i < event.schedule.length);
         return arr;
       })}
     </div>
@@ -63,7 +62,7 @@ function EventGrid({ events }: EventGridProps) {
 }
 
 export default async function Live() {
-  const response: Result<EventResponse[]> = await fetchEvents({
+  const response: Result<Event[]> = await fetchEvents({
     subcategories: [
       "hard-rock-metal",
       "dance-electronic",
@@ -71,7 +70,7 @@ export default async function Live() {
       "hip-hop-soul-rnb",
     ],
   });
-  const events: EventResponse[] = response.success ? response.result : [];
+  const events: Event[] = response.success ? response.result : [];
   if (!response.success) {
     console.error(response.error.context);
   }
