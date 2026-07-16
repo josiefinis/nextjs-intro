@@ -5,6 +5,7 @@ import type {
   Event,
   fetchEventsProps,
   ScheduleItem,
+  EventsPage,
 } from "@/lib/types";
 import { replaceHtmlEntities } from "@/lib/util";
 
@@ -22,7 +23,7 @@ export async function fetchEvents({
   page = 1,
   size = 16,
   subcategories = [],
-}: fetchEventsProps): Promise<Result<Event[]>> {
+}: fetchEventsProps): Promise<Result<EventsPage>> {
   const filter = subcategories
     .map((subcategory) => `&subcategory=${subcategory}`)
     .join("");
@@ -30,11 +31,9 @@ export async function fetchEvents({
 
   try {
     const data: EventsResponse = (await apiFetch(url)) as EventsResponse;
-    const events: Event[] = data.results
-      .map((d) => initEventResponse(d))
-      .map((d) => toEvent(d));
-    mapIds(events);
-    return { success: true, result: events };
+    const eventsPage: EventsPage = toEventsPage(data);
+    mapIds(eventsPage.events);
+    return { success: true, result: eventsPage };
   } catch (err) {
     const error = ensureError(err);
     return { success: false, error };
@@ -52,6 +51,19 @@ export async function fetchEventById(id: string): Promise<Result<Event>> {
     const error = ensureError(err);
     return { success: false, error };
   }
+}
+
+function toEventsPage(data: EventsResponse): EventsPage {
+  return {
+    count: data.count,
+    next: data.next,
+    previous: data.previous,
+    totalPages: data.total_pages,
+    currentPage: data.current_page,
+    events: data.results
+      .map((d) => initEventResponse(d))
+      .map((d) => toEvent(d)),
+  };
 }
 
 function toEvent(data: EventResponse): Event {

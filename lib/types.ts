@@ -83,6 +83,15 @@ export interface Event {
   closestStation: string;
 }
 
+export interface EventsPage {
+  count: number;
+  next: number | null;
+  previous: number | null;
+  totalPages: number;
+  currentPage: number;
+  events: Event[];
+}
+
 export interface ScheduleItem {
   startTime: Date;
   endTime: Date;

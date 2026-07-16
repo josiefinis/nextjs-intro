@@ -1,8 +1,9 @@
 import type { Result } from "@/lib/errors";
-import type { Event } from "@/lib/types";
+import type { Event, EventsPage } from "@/lib/types";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents } from "@/data/events";
+import Link from "next/link";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
@@ -33,11 +34,7 @@ function Event({ url, title, venue, date }: EventProps) {
   );
 }
 
-interface EventGridProps {
-  events: Event[];
-}
-
-function EventGrid({ events }: EventGridProps) {
+function EventGrid({ events }: { events: Event[] }) {
   return (
     <div className="grid gap-24 md:gap-12 inline-full">
       {events.flatMap((event) => {
@@ -61,8 +58,16 @@ function EventGrid({ events }: EventGridProps) {
   );
 }
 
-export default async function Live() {
-  const response: Result<Event[]> = await fetchEvents({
+export default async function Live({
+  page,
+  size,
+}: {
+  page: number;
+  size: number;
+}) {
+  const response: Result<EventsPage> = await fetchEvents({
+    page: page,
+    size: size,
     subcategories: [
       "hard-rock-metal",
       "dance-electronic",
@@ -70,22 +75,30 @@ export default async function Live() {
       "hip-hop-soul-rnb",
     ],
   });
-  const events: Event[] = response.success ? response.result : [];
   if (!response.success) {
     console.error(response.error.context);
   }
+  const events: Event[] = response.success ? response.result.events : [];
+  const next: number | null = response.success ? response.result.next : 1;
+  const previous: number | null = response.success
+    ? response.result.previous
+    : 1;
 
   return (
     <section aria-labelledby="live" className="mx-4">
       <h2 id="live" className="font-display text-fluid-4xl text-center mbs-8">
         Live
       </h2>
-      <div className="text-center mbe-24">
+      <div className="text-center mbe-12">
         <p className="font-display text-fluid-xl">(Supporting)</p>
         <small className="font-display text-fluid-sm text-pretty">
           ((in her heart))
         </small>
       </div>
+      <nav className="text-center mbe-24 *:mx-4">
+        {previous && <Button href={`/?page=${previous}#live`}>Previous</Button>}
+        {next && <Button href={`/?page=${next}#live`}>Next</Button>}
+      </nav>
       {response.success ? (
         <EventGrid events={events} />
       ) : (
