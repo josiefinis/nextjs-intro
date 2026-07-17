@@ -83,7 +83,7 @@ export interface Event {
   closestStation: string;
 }
 
-export interface EventsPage {
+export interface Events {
   count: number;
   next: number | null;
   previous: number | null;

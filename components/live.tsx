@@ -1,5 +1,5 @@
 import type { Result } from "@/lib/errors";
-import type { Event, EventsPage } from "@/lib/types";
+import type { Event, Events } from "@/lib/types";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents } from "@/data/events";
@@ -62,7 +62,7 @@ export default async function Live({
   page: number;
   size: number;
 }) {
-  const response: Result<EventsPage> = await fetchEvents({
+  const response: Result<Events> = await fetchEvents({
     page: page,
     size: size,
     subcategories: [

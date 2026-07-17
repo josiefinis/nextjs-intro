@@ -5,33 +5,36 @@ import type {
   Event,
   fetchEventsProps,
   ScheduleItem,
-  EventsPage,
+  Events,
 } from "@/lib/types";
 import { replaceHtmlEntities } from "@/lib/util";
 
-async function apiFetch(url: string): Promise<EventResponse | EventsResponse> {
+const URL_API = "https://api.visitstockholm.com/api/public-v1";
+
+async function apiFetch<T>(url: URL): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) {
     const context = { status: res.status, url: res.url };
     throw new ApiError("Fetch failed", { context: context });
   }
-  const data = await res.json();
-  return data;
+  return await res.json();
 }
 
 export async function fetchEvents({
   page = 1,
   size = 16,
   subcategories = [],
-}: fetchEventsProps): Promise<Result<EventsPage>> {
-  const filter = subcategories
-    .map((subcategory) => `&subcategory=${subcategory}`)
-    .join("");
-  const url = `https://api.visitstockholm.com/api/public-v1/events/?format=json&page=${page}&size=${size}&categories=music${filter}`;
+}: fetchEventsProps): Promise<Result<Events>> {
+  const url = new URL(`${URL_API}/events/?categories=music`);
+  url.searchParams.append("page", String(page));
+  url.searchParams.append("size", String(size));
+  subcategories.forEach((subcategory) =>
+    url.searchParams.append("subcategory", String(subcategory)),
+  );
 
   try {
-    const data: EventsResponse = (await apiFetch(url)) as EventsResponse;
-    const eventsPage: EventsPage = toEventsPage(data);
+    const data: EventsResponse = await apiFetch(url);
+    const eventsPage: Events = toEvents(data);
     mapIds(eventsPage.events);
     return { success: true, result: eventsPage };
   } catch (err) {
@@ -44,11 +47,10 @@ export async function fetchEvents({
 }
 
 export async function fetchEventById(id: string): Promise<Result<Event>> {
-  const url = `https://api.visitstockholm.com/api/public-v1/events/${id}/`;
+  const url = new URL(`${URL_API}/events/${id}/`);
 
   try {
-    let data: EventResponse = (await apiFetch(url)) as EventResponse;
-    data = initEventResponse(data);
+    const data: EventResponse = await apiFetch(url);
     const event: Event = toEvent(data);
     return { success: true, result: event };
   } catch (err) {
@@ -60,78 +62,48 @@ export async function fetchEventById(id: string): Promise<Result<Event>> {
   }
 }
 
-function toEventsPage(data: EventsResponse): EventsPage {
+function toEvent(data: Partial<EventResponse>): Event {
+  const {
+    id = "",
+    title = { en: "" },
+    description = { en: "" },
+    external_website_url = "",
+    url = "",
+    address = "",
+    venue_name = "",
+    zip_code = "",
+    city = "",
+    schedule = { dates: [] },
+    closest_station = "",
+  } = data;
+
   return {
-    count: data.count,
-    next: data.next,
-    previous: data.previous,
-    totalPages: data.total_pages,
-    currentPage: data.current_page,
-    events: data.results
-      .map((d) => initEventResponse(d))
-      .map((d) => toEvent(d)),
+    title: title.en,
+    description: replaceHtmlEntities(description.en),
+    externalWebsiteUrl: external_website_url,
+    venueName: venue_name,
+    zipCode: zip_code,
+    closestStation: closest_station,
+    schedule: getSchedule(schedule.dates),
+    ...{ id, url, address, city },
   };
 }
 
-function toEvent(data: EventResponse): Event {
-  return {
-    id: data.id,
-    title: data.title.en,
-    description: replaceHtmlEntities(data.description.en),
-    externalWebsiteUrl: data.external_website_url,
-    url: data.url,
-    address: data.address,
-    venueName: data.venue_name,
-    zipCode: data.zip_code,
-    city: data.city,
-    schedule: getSchedule(data.schedule.dates),
-    closestStation: data.closest_station,
-  };
-}
+function toEvents(data: Partial<EventsResponse>): Events {
+  const {
+    count = 0,
+    next = null,
+    previous = null,
+    total_pages = 0,
+    current_page = 1,
+    results = [],
+  } = data;
 
-function initEventResponse(options?: Partial<EventResponse>): EventResponse {
-  const defaults = {
-    id: "",
-    title: { en: "", sv: "" },
-    description: { en: "", sv: "" },
-    external_website_url: "",
-    url: "",
-    address: "",
-    venue_name: "",
-    zip_code: "",
-    city: "",
-    location: {
-      latitude: 0,
-      longitude: 0,
-    },
-    created_at: "",
-    modified_at: "",
-    start_date: "",
-    end_date: "",
-    start_time: "",
-    end_time: "",
-    categories: [
-      {
-        title: "",
-        slug: "",
-        subcategories: "",
-      },
-    ],
-    schedule: {
-      range: null,
-      dates: [
-        {
-          date: "",
-          start_time: "",
-          end_time: "",
-        },
-      ],
-    },
-    closest_station: "",
-  };
   return {
-    ...defaults,
-    ...options,
+    totalPages: total_pages,
+    currentPage: current_page,
+    events: results.map((d) => toEvent(d)),
+    ...{ count, next, previous },
   };
 }
 
