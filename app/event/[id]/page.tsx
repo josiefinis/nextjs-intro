@@ -41,6 +41,7 @@ export default async function EventPage({
     notFound();
   }
   const event = response.result;
+  console.log(event);
 
   return (
     <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
@@ -49,11 +50,17 @@ export default async function EventPage({
         <p className="max-inline-[70ch]">{event.description}</p>
       </header>
       {event.schedule.map((scheduleItem, index) => (
-        <EventDate
-          key={`${event.id}${index}`}
-          date={scheduleItem.startTime}
-          className="text-fluid-xl"
-        />
+        <div key={`${event.id}${index}`} className="text-fluid-xl">
+          <EventDate date={scheduleItem.startTime} />
+          &mdash;
+          <EventDate
+            date={scheduleItem.endTime}
+            format={Intl.DateTimeFormat("en-UK", {
+              hour: "numeric",
+              minute: "numeric",
+            })}
+          />
+        </div>
       ))}
       <section aria-labelledby="venue">
         <h2 id="venue" className="text-fluid-xl">

@@ -1,4 +1,4 @@
-const longDate = Intl.DateTimeFormat("en-UK", {
+const shortDateTime = Intl.DateTimeFormat("en-UK", {
   weekday: "short",
   month: "short",
   day: "numeric",
@@ -17,13 +17,18 @@ function isDate(variable: Date | undefined): variable is Date {
 
 interface DateProps {
   date: Date | undefined;
+  format?: Intl.DateTimeFormat;
   className?: string;
 }
 
-export default function EventDate({ date, className }: DateProps) {
+export default function EventDate({
+  date,
+  format = shortDateTime,
+  className,
+}: DateProps) {
   return isDate(date) ? (
     <time dateTime={date.toISOString()} className={className}>
-      {longDate.format(date)}
+      {format.format(date)}
     </time>
   ) : (
     <p className={className}>TBD</p>
