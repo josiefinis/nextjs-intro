@@ -4,7 +4,6 @@ import EventDate from "@/components/event-date";
 import type { Event } from "@/lib/types";
 import type { Result } from "@/lib/errors";
 import { fetchEventById, getIdByUrl } from "@/data/events";
-import { replaceHtmlEntities } from "@/lib/util";
 
 export async function generateMetadata({
   params,

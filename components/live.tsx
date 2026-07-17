@@ -3,7 +3,6 @@ import type { Event, EventsPage } from "@/lib/types";
 import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents } from "@/data/events";
-import Link from "next/link";
 
 function cleanTitle(title: string, venue: string): string {
   const regex = new RegExp(` ((on)|(at)) ${venue}`);
@@ -25,11 +24,9 @@ function Event({ url, title, venue, date }: EventProps) {
         <p>{venue}</p>
       </header>
       <EventDate date={date} className="order-first" />
-      <Button
-        href={`/event/${url}`}
-        children="More info"
-        classes="mx-auto font-normal"
-      />
+      <Button href={`/event/${url}`} classes="mx-auto font-normal">
+        More info
+      </Button>
     </article>
   );
 }
@@ -40,7 +37,7 @@ function EventGrid({ events }: { events: Event[] }) {
       {events.flatMap((event) => {
         // Some events are scheduled on more than one date. Create a separate card for each date.
         let i = 0;
-        let arr = [];
+        const arr = [];
         do {
           arr.push(
             <Event
