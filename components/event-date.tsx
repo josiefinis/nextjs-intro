@@ -7,8 +7,9 @@ const shortDateTime = Intl.DateTimeFormat("en-UK", {
 });
 
 function isDate(variable: Date | undefined): variable is Date {
+  if (!variable) return false;
   try {
-    variable?.toISOString();
+    variable.toISOString();
     return true;
   } catch {
     return false;
