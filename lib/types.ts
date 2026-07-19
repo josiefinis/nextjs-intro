@@ -1,15 +1,3 @@
-export type MusicSubcategory =
-  | "jazz-blues"
-  | "pop"
-  | "dance-electronic"
-  | "hip-hop-soul-rnb"
-  | "hard-rock-metal"
-  | "indie-punk"
-  | "country-folk"
-  | "rock"
-  | "reggae"
-  | "classical";
-
 export interface Category {
   slug: string;
   title: string;
@@ -69,6 +57,16 @@ export interface EventResponse {
   closest_station: string;
 }
 
+export interface Events {
+  count: number;
+  subcategories: Subcategory[];
+  next: number | null;
+  previous: number | null;
+  totalPages: number;
+  currentPage: number;
+  events: Event[];
+}
+
 export interface Event {
   id: string;
   title: string;
@@ -83,15 +81,6 @@ export interface Event {
   closestStation: string;
 }
 
-export interface Events {
-  count: number;
-  next: number | null;
-  previous: number | null;
-  totalPages: number;
-  currentPage: number;
-  events: Event[];
-}
-
 export interface ScheduleItem {
   startTime: Date;
   endTime: Date;
@@ -100,5 +89,5 @@ export interface ScheduleItem {
 export interface fetchEventsProps {
   page?: number;
   size?: number;
-  subcategories?: MusicSubcategory[];
+  subcategories?: string[];
 }

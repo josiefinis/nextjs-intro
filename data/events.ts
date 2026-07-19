@@ -92,6 +92,7 @@ function toEvent(data: Partial<EventResponse>): Event {
 function toEvents(data: Partial<EventsResponse>): Events {
   const {
     count = 0,
+    meta = { categories: [] },
     next = null,
     previous = null,
     total_pages = 0,
@@ -100,6 +101,9 @@ function toEvents(data: Partial<EventsResponse>): Events {
   } = data;
 
   return {
+    subcategories:
+      meta.categories.find((category) => category.slug === "music")
+        ?.subcategories ?? [],
     totalPages: total_pages,
     currentPage: current_page,
     events: results.map((d) => toEvent(d)),

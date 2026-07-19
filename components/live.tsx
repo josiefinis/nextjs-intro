@@ -4,11 +4,6 @@ import Button from "@/components/button";
 import EventDate from "@/components/event-date";
 import { fetchEvents } from "@/data/events";
 
-function cleanTitle(title: string, venue: string): string {
-  const regex = new RegExp(` ((on)|(at)) ${venue}`);
-  return title.replace(regex, "");
-}
-
 interface EventProps {
   url: string;
   title: string;
@@ -24,7 +19,7 @@ function Event({ url, title, venue, date }: EventProps) {
         <p>{venue}</p>
       </header>
       <EventDate date={date} className="order-first" />
-      <Button href={`/event/${url}`} classes="mx-auto font-normal">
+      <Button href={`/event/${url}`} className="mx-auto font-normal">
         More info
       </Button>
     </article>
@@ -56,45 +51,94 @@ function EventGrid({ events }: { events: Event[] }) {
 }
 
 export default async function Live({
-  page,
-  size,
+  currentPage,
+  currentSize,
+  subcategories,
 }: {
-  page: number;
-  size: number;
+  currentPage: number;
+  currentSize: number;
+  subcategories: string[];
 }) {
   const response: Result<Events> = await fetchEvents({
-    page: page,
-    size: size,
-    subcategories: [
-      "hard-rock-metal",
-      "dance-electronic",
-      "indie-punk",
-      "hip-hop-soul-rnb",
-    ],
+    page: currentPage,
+    size: currentSize,
+    subcategories: subcategories,
   });
   if (!response.success) {
     console.error(response.error.context);
   }
+
   const events: Event[] = response.success ? response.result.events : [];
-  const next: number | null = response.success ? response.result.next : 1;
-  const previous: number | null = response.success
+  const allSubcategories = response.success
+    ? response.result.subcategories
+    : [];
+  const nextPage: number | null = response.success
+    ? response.result.next
+    : null;
+  const previousPage: number | null = response.success
     ? response.result.previous
-    : 1;
+    : null;
+
+  const currentParams = new URLSearchParams();
+  currentParams.set("page", String(currentPage) ?? "1");
+  subcategories.map((subcategory) =>
+    currentParams.append("subcategory", subcategory),
+  );
 
   return (
     <section aria-labelledby="live" className="mx-4">
-      <h2 id="live" className="font-display text-fluid-4xl text-center mbs-8">
+      <h2
+        id="live"
+        className="font-display text-fluid-4xl text-center mbs-8 mbe-4"
+      >
         Live
       </h2>
-      <div className="text-center mbe-12">
-        <p className="font-display text-fluid-xl">(Supporting)</p>
-        <small className="font-display text-fluid-sm text-pretty">
-          ((in her heart))
-        </small>
+      <div
+        aria-label="filter by genre"
+        className="flex justify-center flex-wrap mbe-24 *:m-1 text-fluid-sm"
+      >
+        {allSubcategories.map((subcategory) => {
+          const isIncluded = currentParams.has("subcategory", subcategory.slug);
+          return (
+            <Button
+              key={`${subcategory.slug}`}
+              href={`/?${newSearchParams(currentParams, subcategory.slug)}`}
+              scroll={false}
+              className={isIncluded ? "bg-pink-700" : "bg-black"}
+            >
+              {`${subcategory.title}`}
+            </Button>
+          );
+        })}
       </div>
-      <nav className="text-center mbe-24 *:mx-4">
-        {previous && <Button href={`/?page=${previous}#live`}>Previous</Button>}
-        {next && <Button href={`/?page=${next}#live`}>Next</Button>}
+      <nav
+        aria-label="pages"
+        className="text-center text-fluid-sm mbe-12 *:mx-4"
+      >
+        {previousPage && (
+          <Button
+            href={(() => {
+              const newParams = new URLSearchParams(currentParams);
+              newParams.set("page", String(previousPage));
+              return `/?${newParams}`;
+            })()}
+            scroll={false}
+          >
+            previous
+          </Button>
+        )}
+        {nextPage && (
+          <Button
+            href={(() => {
+              const newParams = new URLSearchParams(currentParams);
+              newParams.set("page", String(nextPage));
+              return `/?${newParams}`;
+            })()}
+            scroll={false}
+          >
+            next
+          </Button>
+        )}
       </nav>
       {response.success ? (
         <EventGrid events={events} />
@@ -105,4 +149,23 @@ export default async function Live({
       )}
     </section>
   );
+}
+
+function cleanTitle(title: string, venue: string): string {
+  const regex = new RegExp(` ((on)|(at)) ${venue}`);
+  return title.replace(regex, "");
+}
+
+function newSearchParams(
+  currentParams: URLSearchParams,
+  subcategory: string,
+): URLSearchParams {
+  const newParams = new URLSearchParams(currentParams);
+  newParams.delete("page");
+  if (currentParams.has("subcategory", subcategory)) {
+    newParams.delete("subcategory", subcategory);
+  } else {
+    newParams.append("subcategory", subcategory);
+  }
+  return newParams;
 }
