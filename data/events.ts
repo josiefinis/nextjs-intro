@@ -113,7 +113,7 @@ export function getSchedule(
   return (
     dates.map((date) => {
       const startTime = new Date(`${date.date} ${date.start_time}`);
-      let endTime = new Date(`${date.date} ${date.end_time}`);
+      const endTime = new Date(`${date.date} ${date.end_time}`);
       if (endTime < startTime) {
         endTime.setDate(endTime.getDate() + 1);
       }
