@@ -44,24 +44,26 @@ export default async function EventPage({
   console.log(event);
 
   return (
-    <div className="flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
+    <div className="text-fluid-lg flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
       <header>
         <h1 className="font-display text-fluid-2xl">{event.title}</h1>
-        <p className="max-inline-[70ch]">{event.description}</p>
+        <p className="max-inline-[70ch] ">{event.description}</p>
       </header>
-      {event.schedule.map((scheduleItem, index) => (
-        <div key={`${event.id}${index}`} className="text-fluid-xl">
-          <EventDate date={scheduleItem.startTime} />
-          &mdash;
-          <EventDate
-            date={scheduleItem.endTime}
-            format={Intl.DateTimeFormat("en-UK", {
-              hour: "numeric",
-              minute: "numeric",
-            })}
-          />
-        </div>
-      ))}
+      {event.schedule
+        .filter((item) => item.startTime > new Date())
+        .map((scheduleItem, index) => (
+          <div key={`${event.id}${index}`} className="text-fluid-xl">
+            <EventDate date={scheduleItem.startTime} />
+            &mdash;
+            <EventDate
+              date={scheduleItem.endTime}
+              format={Intl.DateTimeFormat("en-UK", {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+          </div>
+        ))}
       <section aria-labelledby="venue">
         <h2 id="venue" className="text-fluid-xl">
           Venue

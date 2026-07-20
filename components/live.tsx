@@ -102,16 +102,20 @@ function EventGrid({
         // Some events are scheduled on more than one date. Create a separate card for each date.
         let i = 0;
         const arr = [];
+        const { id, url, title, venueName } = event;
         do {
-          arr.push(
-            <Event
-              key={`${event.id}${i}`}
-              url={event.url}
-              title={cleanTitle(event.title, event.venueName)}
-              venue={event.venueName}
-              date={event.schedule[i]?.startTime}
-            />,
-          );
+          const date = event.schedule[i]?.startTime;
+          date &&
+            date > new Date() &&
+            arr.push(
+              <Event
+                key={`${id}${i}`}
+                url={url}
+                title={cleanTitle(title, venueName)}
+                venue={venueName}
+                date={date}
+              />,
+            );
         } while (++i < event.schedule.length);
         return arr;
       })}
