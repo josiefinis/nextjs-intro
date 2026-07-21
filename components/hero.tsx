@@ -13,7 +13,7 @@ export default function Hero() {
           src={wingedHeart}
           alt=""
         />
-        <h1 className="font-fruktur text-fluid-9xl py-1 text-center text-pink-50">
+        <h1 className="font-fruktur text-fluid-9xl py-1 text-center text-pink-50 text-shadow-md md:text-shadow-lg text-shadow-pink-50">
           JosifiniX
         </h1>
       </header>

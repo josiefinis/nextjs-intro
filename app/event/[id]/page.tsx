@@ -44,15 +44,15 @@ export default async function EventPage({
   console.log(event);
 
   return (
-    <div className="text-fluid-lg flex flex-col items-start gap-4 mbs-12 mx-4 md:mx-12">
+    <div className="flex flex-col items-start gap-4 text-fluid-lg  mbs-12 mx-4 md:mx-12">
       <header>
         <h1 className="font-display text-fluid-2xl">{event.title}</h1>
-        <p className="max-inline-[70ch] ">{event.description}</p>
+        <p className="max-inline-[70ch] font-semibold">{event.description}</p>
       </header>
       {event.schedule
         .filter((item) => item.startTime > new Date())
         .map((scheduleItem, index) => (
-          <div key={`${event.id}${index}`} className="text-fluid-xl">
+          <div key={`${event.id}${index}`} className="text-fluid-xl font-bold">
             <EventDate date={scheduleItem.startTime} />
             &mdash;
             <EventDate
@@ -77,7 +77,12 @@ export default async function EventPage({
         </address>
         <p>Closest station: {event.closestStation}</p>
       </section>
-      <Link href={event.externalWebsiteUrl} prefetch={false}>
+      <Link
+        href={event.externalWebsiteUrl}
+        prefetch={false}
+        target="_blank"
+        className="break-all"
+      >
         {event.externalWebsiteUrl}
       </Link>
     </div>

@@ -10,12 +10,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-body: var(--font-josefin-slab);
+  --font-display: var(--font-special-elite);
   --font-fruktur: var(--font-fruktur);
   --font-cherish: var(--font-cherish);
-  --font-display: var(--font-josefin-sans);
+
   --text-fluid-sm: clamp(0.6rem, 0.8cqi + 0.4rem, 2rem);
-  --text-fluid-lg: clamp(1rem, 1cqi + 0.5rem, 2rem);
-  --text-fluid-xl: clamp(1rem, 1.8cqi + 0.5rem, 4rem);
+  --text-fluid-lg: clamp(0.8rem, 1cqi + 0.5rem, 2rem);
+  --text-fluid-xl: clamp(0.8rem, 1.8cqi + 0.5rem, 4rem);
   --text-fluid-2xl: clamp(2rem, 4cqi + 0.5rem, 8rem);
   --text-fluid-3xl: clamp(2rem, 6cqi + 0.5rem, 12rem);
   --text-fluid-4xl: clamp(2rem, 8cqi + 0.5rem, 16rem);
@@ -31,7 +33,7 @@
 }
 
 body {
+  font-family: var(--font-body), sans-serif;
   background: var(--background);
   color: var(--foreground);
-  font-family: "Josefin Sans", Helvetica, sans-serif;
 }

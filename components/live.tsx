@@ -45,7 +45,7 @@ export default async function Live({
   );
 
   return (
-    <section aria-labelledby="live" className="mx-4">
+    <section aria-labelledby="live" className="min-block-svh mx-4">
       <h2
         id="live"
         className="font-display text-fluid-4xl text-center mbs-8 mbe-4"
@@ -70,6 +70,12 @@ export default async function Live({
           There was a problem retrieving live events. Please try again later.
         </p>
       )}
+      <Pagination
+        currentParams={currentParams}
+        previousPage={previousPage}
+        nextPage={nextPage}
+        className="text-center text-fluid-sm mbe-12 *:mx-4"
+      />
     </section>
   );
 }

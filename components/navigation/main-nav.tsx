@@ -6,21 +6,20 @@ const navLinks = [
   { href: "/merch", label: "Merch" },
   { href: "/signup", label: "Signup" },
   { href: "/listen", label: "Listen" },
-  { href: "/#live", label: "Live" },
 ];
 
 export default function MainNav() {
   return (
-    <nav className="flex justify-center gap-4 items-center m-4 | font-display text-fluid-xl">
+    <nav className="flex justify-center gap-4 items-center block-min m-4 | font-display text-fluid-xl ">
       <Link
         href={"/"}
         aria-label="Home"
-        className="me-auto focus-visible:outline-none"
+        className="block-auto inline-1/12 me-auto focus-visible:outline-none"
       >
         <Image
           src={logo}
           alt=""
-          className="h-10 w-auto hover:drop-shadow-lg hover:drop-shadow-pink-50 in-focus-visible:drop-shadow-lg in-focus-visible:drop-shadow-pink-50"
+          className="hover:drop-shadow-lg hover:drop-shadow-pink-50 in-focus-visible:drop-shadow-lg in-focus-visible:drop-shadow-pink-50"
         />
       </Link>
       {navLinks.map((link) => (
@@ -32,6 +31,12 @@ export default function MainNav() {
           {link.label}
         </Link>
       ))}
+      <a
+        href={"/#live"}
+        className="hover:text-shadow-lg hover:text-shadow-pink-50 focus-visible:outline-none focus-visible:text-shadow-lg focus-visible:text-shadow-pink-50 me-auto"
+      >
+        Live
+      </a>
     </nav>
   );
 }

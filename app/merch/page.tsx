@@ -20,7 +20,7 @@ export default function MerchPage() {
             width={960}
             height={600}
           />
-          <figcaption className="font-display text-fluid-lg">
+          <figcaption className="text-fluid-lg font-semibold">
             Illustration by Edmund J. Sullivan from <i>Sartor Resartus</i> by
             Thomas Carlyle. 1898
           </figcaption>
