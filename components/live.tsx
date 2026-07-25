@@ -28,7 +28,7 @@ export default async function Live({
     subcategories: subcategories,
   });
   if (!response.success) {
-    console.error(response.error.context);
+    console.warn(response.error.context);
   }
 
   const {
