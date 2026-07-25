@@ -16,7 +16,7 @@ In this section of the course we learned about:
 - Basic routing 
 - Conditional rendering
 - Dynamic routes and dynamic metadata
-- Fetch API with REST
+- Fetch API with REST and GraphQL
 - Error handling
 - URL State Management with searchParams in server components.
 
@@ -66,11 +66,6 @@ I used the [Stockholm Open API](https://api.visitstockholm.com/) which lists eve
 
 ## Error handling
 I implemented error handling in connection with API fetch requests, mostly within `data/events.ts` and using functionality imported from `lib/errors.ts`. I took the opportunity to familiarise myself with some techniques I was interested in, including a custom BaseError class that facilitates passing context with an error, a function for ensuring all errors are passed as an instance of Error, and a generic type to wrap the API response along with a variable showing if the fetch was successful or failed. 
-
-## Reflections
-React and nextjs are clearly very powerful and feature rich tools. I enjoyed the ease of working with react components, especially after working with DOM manipulation in Typescript. There are some inherent difficulties going up an abstraction level, being aware that there is hidden complexity happening under the hood but not yet grasping what it is. Also as a beginner there is just a lot I don't know yet, which makes for more work when looking anything up in the documentation. The main difficulties I had were in figuring out unexpected behaviour and there are still some problems I had that I have not figured out.
-
-I found Tailwind fairly easy to pick up. I appreciate the consistency of its documentation and that it straightforward to see what the corresponding CSS is.
 
 ## Loose ends
 This project will be left in it's unfinished state as we move on to work with other things, but there are a number of questions I will be looking to find answers to in future work.
