@@ -9,7 +9,6 @@ export default async function Home({
   const { page = "1", size = "16", subcategory = [] } = await searchParams;
   const currentPage = Number(page);
   const currentSize = Number(size);
-  console.log(`home: ${subcategory}`);
   const subcategories =
     subcategory instanceof Array ? subcategory : [subcategory];
 

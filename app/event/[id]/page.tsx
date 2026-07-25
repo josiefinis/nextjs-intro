@@ -41,7 +41,6 @@ export default async function EventPage({
     notFound();
   }
   const event = response.result;
-  console.log(event);
 
   return (
     <div className="flex flex-col items-start gap-4 text-fluid-lg  mbs-12 mx-4 md:mx-12">
