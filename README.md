@@ -1,4 +1,4 @@
-<!-- Image here -->
+![winged heart](./public/readme-header.png)
 # Josifinix 
 This project was part of the Lexicon frontend education and my first introduction to Next.js and React. It is a fictional music artist's website where one can look up live music events happening in and around Stockholm.
 
@@ -6,6 +6,18 @@ This project was part of the Lexicon frontend education and my first introductio
 - List live music events in the Stockholm area
 - Filter by genre
 - View detailed information for each event
+- Responsive design
+- Accessible design[\*](#-known-issues)
+
+## :camera: Screenshots
+![](./public/screenshot-live.png)
+Live event list fetched from Stockholm events API, filtered by music genre.
+
+---
+![](./public/screenshot-event.png)
+More info page for a single event.
+
+---
 
 ## :wheel: Under the hood
 - React components
@@ -16,7 +28,6 @@ This project was part of the Lexicon frontend education and my first introductio
 - URL State management with searchParams in server components
 - Error handling
 
-<!-- screenshots here? -->
 ## :arrow_down_small: Installation
 ```bash
 git clone git@github.com:josiefinis/nextjs-intro.git
@@ -67,11 +78,11 @@ This project uses the [Stockholm Open API](https://api.visitstockholm.com/) to r
 
 ## :bug: Known Issues
 <!-- rewrite -->
-The goal of this project was to learn basic Next.js and React, not to create a finished product. It is unlikely that it will be developed further. There were some bugs where I suspect the solution requires features of Next.js outside the scope of this project. I will keep these in mind as I continue to learn and work with Next.js and React.
+The goal of this project was to learn basic Next.js and React, not to create a finished product. It is unlikely that it will be developed further. There were some bugs where I suspect the solution requires features of Next.js outside the scope of this project. I will keep these in mind as I continue to learn and work with Next.js and React, specifically
 - Keyboard navigation issues having to do with differences between Link elements and anchor elements
 - Event list failing to update when removing a filter 
 
-Other issues can be found under [issues](https://github.com/josiefinis/nextjs-intro/issues).
+Other issues and ideas for future development can be found under [issues](https://github.com/josiefinis/nextjs-intro/issues).
 
 ## :mortar_board: Lexicon
 This project was part of the frontend education with Lexicon. Previous and subsequent projects can be found below.
@@ -82,3 +93,6 @@ This project was part of the frontend education with Lexicon. Previous and subse
 - [Async Practice (Typescript)](https://github.com/josiefinis/async-practice)
 - **Josifinix (Next.js, React & Tailwind)**
 - [Webshop (Agile, GitHub Projects, Next.js, React & Tailwind)](https://github.com/Martin-Joensson/projekt-agila-metoder-webshop)
+
+## :bust_in_silhouette: Author
+Josefin Wall ([@josiefinis](https://github.com/josiefinis))
