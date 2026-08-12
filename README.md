@@ -1,31 +1,49 @@
-# nextjs - intro
+![winged heart](./public/readme-header.png)
+# Josifinix 
+This project was part of the Lexicon frontend education and my first introduction to Next.js and React. It is a fictional music artist's website where one can look up live music events happening in and around Stockholm.
 
-This is a learning project and is my first time using React and Next.js. It was part of the frontend education with Lexicon where we had previously worked with static HTML and CSS, followed by Typescript. This previous work can be found here:
+## :star: Features
+- List live music events in the Stockholm area
+- Filter by genre
+- View detailed information for each event
+- Responsive design
+- Accessible design[\*](#bug-known-issues)
 
-- [Recept (HTML & CSS)](https://github.com/josiefinis/recept)
-- [Evently (HTML & CSS)](https://github.com/josiefinis/Evently-2026)
-- [Task tracker (Typescript)](https://github.com/josiefinis/task-tracker)
-- [Async Practice (Typescript)](https://github.com/josiefinis/async-practice)
+## :camera: Screenshots
+![](./public/screenshot-live.png)
+Live event list fetched from Stockholm events API, filtered by music genre.
 
-## Learning Outcomes
-In this section of the course we learned about:
-- Basic structure of a Next.js app router project
-- Next.js naming conventions
-- Components, props and params
-- Built in components Link and Image
-- Basic routing 
+---
+![](./public/screenshot-event.png)
+More info page for a single event.
+
+---
+
+## :wheel: Under the hood
+- React components
 - Conditional rendering
-- Dynamic routes and dynamic metadata
-- Fetch API with REST and GraphQL
+- Basic routing
+- Dynamic route with dynamic metadata
+- Fetch API with REST
+- URL State management with searchParams in server components
 - Error handling
-- URL State Management with searchParams in server components.
 
-I also worked with Tailwind for the first time on this project. 
+## :arrow_down_small: Installation
+```bash
+git clone git@github.com:josiefinis/nextjs-intro.git
+cd nextjs-intro
+npm install
+npm run dev
+```
+Open http://localhost:3000 with your browser to see the result.
+## :sewing_needle: Technologies
+<!-- logos here -->
+- Next.js
+- React
+- Typescript
+- Tailwind
 
-## Overview
-This is a website for a fictional music artist. The website features a main navigation bar at the top of all pages with static routes to Merch, Signup, Listen and Home pages, and to the Live section on the home page. At the top of the home page is a hero section that uses local images. The Merch page contains an image from an external source. The Live section on the home page is a server component that uses live music event data fetched from the [Stockholm Open API](https://api.visitstockholm.com/). It uses URL state management with searchParams to provide navigation from page to page as well as for filtering events by music genre. Each event in the live section links to a dynamic route with more information about each event. This uses a fetch by id to the Stockholm Open API. 
-
-## Project structure
+## :open_file_folder: Project structure
 All application code is stored in shared folders in the root directory. The app directory is kept purely for routing.
 
     root
@@ -50,27 +68,31 @@ All application code is stored in shared folders in the root directory. The app 
       │
       ├ data / events.ts
       │
-      ├ lib
-      │  ├ errors.ts
-      │  ├ types.ts
-      │  └ lib.ts
-      │
-      └ public
-         ├ falling-embers.png
-         ├ pink-sky.jpg
-         ├ winged-heart-logo.png
-         └ winged-heart.png
+      └ lib
+         ├ errors.ts
+         ├ types.ts
+         └ lib.ts
 
-## Fetch API
-I used the [Stockholm Open API](https://api.visitstockholm.com/) which lists events happening in and around Stockholm. The data portion of my app allows for fetching a specific page of a given number of events. In keeping with my site's theme it only fetches music events, but provides functionality to filter by music genre. It also allows fetching a single event by ID. The `live.tsx` component uses URL state management with searchParams to generate fetch queries. The dynamic route `event/[id]` generates a fetch by ID.
+## :file_cabinet: API
+This project uses the [Stockholm Open API](https://api.visitstockholm.com/) to retrieve information on events happening in and around Stockholm. 
 
-## Error handling
-I implemented error handling in connection with API fetch requests, mostly within `data/events.ts` and using functionality imported from `lib/errors.ts`. I took the opportunity to familiarise myself with some techniques I was interested in, including a custom BaseError class that facilitates passing context with an error, a function for ensuring all errors are passed as an instance of Error, and a generic type to wrap the API response along with a variable showing if the fetch was successful or failed. 
+## :bug: Known Issues
+<!-- rewrite -->
+The goal of this project was to learn basic Next.js and React, not to create a finished product. It is unlikely that it will be developed further. There were some bugs where I suspect the solution requires features of Next.js outside the scope of this project. I will keep these in mind as I continue to learn and work with Next.js and React, specifically
+- Keyboard navigation issues having to do with differences between Link elements and anchor elements
+- Event list failing to update when removing a filter 
 
-## Loose ends
-This project will be left in it's unfinished state as we move on to work with other things, but there are a number of questions I will be looking to find answers to in future work.
+Other issues and ideas for future development can be found under [issues](https://github.com/josiefinis/nextjs-intro/issues).
 
-There are significant issues remaining with keyboard navigation. I find it strange that Nextjs' Link component changes how keyboard focus works compared to a normal anchor, and still do not really understand why. 
-I used anchors for linking to an id (e.g. `/#live`) and for skip links because I could not get keyboard focus to work correctly with nextjs Link. I am not exactly happy with this solution and am aware that there are much better approaches. However when researching solutions I found myself frequently out of my depth in areas I know we will cover later in the course, so I decided to be patient.
+## :mortar_board: Lexicon
+This project was part of the frontend education with Lexicon. Previous and subsequent projects can be found below.
 
-There is a bug in my implementation of filters with searchParams where the page does not always update when removing a genre from the filter. The URL updates correctly but the page content does not. I think this has to do with how nextjs handles rerendering of the page but have not figured out what the cause is or if there is a way to force the page to rerender.
+- [Recept (HTML & CSS)](https://github.com/josiefinis/recept)
+- [Evently (HTML & CSS)](https://github.com/josiefinis/Evently-2026)
+- [Task tracker (Typescript)](https://github.com/josiefinis/task-tracker)
+- [Async Practice (Typescript)](https://github.com/josiefinis/async-practice)
+- **Josifinix (Next.js, React & Tailwind)**
+- [Webshop (Agile, GitHub Projects, Next.js, React & Tailwind)](https://github.com/Martin-Joensson/projekt-agila-metoder-webshop)
+
+## :bust_in_silhouette: Author
+Josefin Wall ([@josiefinis](https://github.com/josiefinis))
