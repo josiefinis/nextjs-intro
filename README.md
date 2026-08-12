@@ -7,7 +7,7 @@ This project was part of the Lexicon frontend education and my first introductio
 - Filter by genre
 - View detailed information for each event
 - Responsive design
-- Accessible design[\*](#-known-issues)
+- Accessible design[\*](#bug-known-issues)
 
 ## :camera: Screenshots
 ![](./public/screenshot-live.png)
